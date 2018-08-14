@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './Products.css'
-import ProductForm from './ProductForm';
 import { connect } from 'react-redux';
-import ProductCard from '../components/ProductCard';
 import { getProducts } from '../actions/productActions'
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
+import ProductCard from '../components/ProductCard';
 class Products extends Component {
 
   componentDidMount() {
@@ -13,17 +11,8 @@ class Products extends Component {
 
 render() {
   return (
-
-  <div>
-  <Router>
-  <div>
-  <NavLink to='/new'>New</NavLink>
-  <Route path="/new" component={ProductForm} />
-</div>
-  </Router>
-  <h1>S Dali</h1>
+    <div>
     {this.props.products.map(product => <ProductCard key={product.id} product={product} /> )}
-
     </div>
     )
   }
