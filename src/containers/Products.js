@@ -3,6 +3,8 @@ import './Products.css'
 import { connect } from 'react-redux';
 import { getProducts } from '../actions/productActions'
 import ProductCard from '../components/ProductCard';
+
+
 class Products extends Component {
 
   componentDidMount() {

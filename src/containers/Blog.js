@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
+import $ from 'jquery'
+import { getPosts } from '../actions/postActions'
+import { connect } from 'react-redux';
+
 
 class Blog extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      posts: []
-    }
-  }
 
   componentDidMount() {
-    fetch('https://api.tumblr.com/v2/blog/violentdelights1971.tumblr.com/posts/photo?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1534134287&oauth_nonce=vB3KXh&oauth_version=1.0&oauth_signature=l3UOWPW1GXHI616cQ6enosymB8k=&api_key=fZ6DymUqbEteBsS6GGvexSWDuE8AtLgPSOjjYWxx6OHwJU1Ww8')
-    .then(res => res.json())
-    .then(posts => this.setState({ posts }))
+    this.props.getPosts()
   }
 
 
   render() {
-    console.log(this.state.posts)
     return (
       <div>
-      
+      {this.props.posts.map(post =>
+        <p> <img src={post.photos[0].alt_sizes[0].url} /> </p>
+      )}
+
       </div>
     )
   }
+ }
+
+
+
+const mapStateToProps = (state) => {
+  return ({
+    posts: state.posts
+  })
 }
-export default Blog;
+export default connect(mapStateToProps, { getPosts })(Blog);
