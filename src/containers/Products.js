@@ -4,7 +4,7 @@ import ProductForm from './ProductForm';
 import { connect } from 'react-redux';
 import ProductCard from '../components/ProductCard';
 import { getProducts } from '../actions/productActions'
-
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 class Products extends Component {
 
   componentDidMount() {
@@ -13,10 +13,17 @@ class Products extends Component {
 
 render() {
   return (
+
   <div>
-    <h1>Products Container </h1>
+  <Router>
+  <div>
+  <NavLink to='/new'>New</NavLink>
+  <Route path="/new" component={ProductForm} />
+</div>
+  </Router>
+  <h1>S Dali</h1>
     {this.props.products.map(product => <ProductCard key={product.id} product={product} /> )}
-    <ProductForm />
+
     </div>
     )
   }
