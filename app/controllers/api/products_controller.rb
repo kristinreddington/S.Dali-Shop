@@ -13,9 +13,9 @@ class Api::ProductsController < ApiController
   def create
     product = Product.new(product_params)
     if product.save
-      render json: product
+      render :json => product
     else
-      render json: {:message => product.errors }, :status => 400
+      render :json => {:message => product.errors }, :status => 400
     end
   end
 
