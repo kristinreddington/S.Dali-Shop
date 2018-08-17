@@ -7,17 +7,37 @@ import Home from './Home';
 import Blog from '../containers/Blog'
 import LoginForm from '../containers/LoginForm'
 import RegisterForm from '../containers/RegisterForm'
-
+import Auth from '../helpers/Auth'
 
 class App extends Component {
-  // constructor() {
-    // super()
-    // this.state = {
-      // auth: Auth.isUserAuthenticated(),
-    // }
-  // }
+   constructor() {
+     super()
+     this.state = {
+       auth: Auth.isUserAuthenticated(),
+     }
+     // this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this)
+   }
+
+   // handleRegisterSubmit(event, data) {
+   //   event.preventDefault()
+   //   fetch('http://localhost:3001/api/users', {
+   //     method: 'POST',
+   //     body: JSON.stringify({
+   //       user: data,
+   //     }),
+   //     headers: {
+   //       'Content-Type': 'application/json',
+   //     }
+   //   }).then(res => res.json())
+   //     .then(res => {
+   //     console.log(res)
+   //   }).catch(error => {
+   //     console.log(error)
+   //   })
+   // }
+
   render() {
-    console.log(this.state)
+
     return (
       <Router>
       <div>

@@ -1,22 +1,20 @@
 class Auth {
 
   static authenticateToken(token) {
-    sessionStorage.SetItem('token', token)
+    sessionStorage.setItem('token', token);
   }
 
   static isUserAuthenticated() {
-    return sessionStorage.SetItem('token') !== null;
+    return sessionStorage.getItem('token') !== null;
   }
 
   static deauthenticateToken() {
-    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('token');
   }
 
   static getToken() {
     return sessionStorage.getItem('token');
   }
-
-
 
 }
 
