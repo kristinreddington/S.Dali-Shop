@@ -1,34 +1,38 @@
 class ApiController < ActionController::API
-  helper_method :authenticate_token!, :current_user
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+  #helper_method :require_login, :current_user
+  #acts_as_token_authentication_handler_for User, fallback: :none
+
+  def require_login
+    authenticate_token || render_unauthorized("Access denied")
+  end
+
+
+  def current_user
+    @current_user ||= authenticate_token
+  end
+
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
+
+  protected
+
+  def render_unauthorized(message)
+    errors = { errors: [detail: message] }
+    render json: errors, status: :unauthorized
+  end
 
   private
 
-    def authenticate_token!
-      if request.env['HTTP_AUTHORIZATION']
-        begin
-          token = request.env['HTTP_AUTHORIZATION'].split(" ").last
-          decoded = Auth.decode_token(token)
-          @user_id = decoded[0]["user_id"]
-        rescue JWT::DecodeError
-          errors = [{ message: "Token is invalid!" }]
-        end
-
-        if !current_user || !decoded || errors
-          render json: {
-            errors: errors
-          }, status: 403
-        end
-      else
-        render json: {
-          errors: [
-            { message: "You must include a JWT token!" }
-          ]
-        }, status: 403
-      end
+  def authenticate_token
+    authenticate_with_http_token do |token, options|
+      User.find_by(auth_token: token)
     end
+  end
 
-    def current_user
-      @user ||= User.find_by(id: @user_id) if @user_id
-    end
-end
 end
