@@ -1,8 +1,11 @@
 import React from 'react';
-
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
+import ProductForm from '../containers/ProductForm'
 const Home = () => {
   return (
-    <h1>My Home Page</h1>
+    <div>
+      <hr />
+    </div>
   )
 }
 export default Home;

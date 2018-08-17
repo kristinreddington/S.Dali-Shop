@@ -10,6 +10,13 @@ const setProducts = products => {
   }
 }
 
+const addProduct = product => {
+  return {
+    type: 'CREATE_PRODUCT_SUCCESS',
+    product
+  }
+}
+
 // ** Async Actions ** //
 export const getProducts = () => {
   return (dispatch) => {
@@ -17,13 +24,6 @@ export const getProducts = () => {
     .then(res => res.json())
     .then(products => dispatch(setProducts(products)))
     .catch(error => console.log(error))
-  }
-}
-
-const addProduct = product => {
-  return {
-    type: 'CREATE_PRODUCT_SUCCESS',
-    product
   }
 }
 

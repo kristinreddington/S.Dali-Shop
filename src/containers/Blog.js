@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery'
 import { getPosts } from '../actions/postActions'
 import { connect } from 'react-redux';
-
+import './Blog.css'
 
 class Blog extends Component {
 
@@ -15,9 +15,8 @@ class Blog extends Component {
     return (
       <div>
       {this.props.posts.map(post =>
-        <p> <img src={post.photos[0].alt_sizes[0].url} /> </p>
+        <p> <img className="rounded mx-auto d-block" src={post.photos[0].alt_sizes[0].url} /> </p>
       )}
-
       </div>
     )
   }

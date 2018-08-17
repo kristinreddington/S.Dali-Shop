@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import products from './reducers/products'
 import productFormData from './reducers/productFormData'
 import posts from './reducers/posts'
+
 const reducers = combineReducers( {
   products,
   productFormData,
