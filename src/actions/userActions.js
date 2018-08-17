@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-
+import Auth from '../helpers/Auth'
 
 export const createUser = user => {
   return dispatch => {
@@ -12,7 +12,7 @@ export const createUser = user => {
     })
     .then(res => res.json())
     .then(res => {
-      console.log(res)
+      Auth.authenticateToken(res.token)
     }).catch(error => {
       console.log(error)
     })
