@@ -1,6 +1,6 @@
 input[type="email"],[type="text"] {
   font-size: 12px;
-  border-radius: 2px;
+  border-radius: 3px;
   background: #ffffff;
   color: #4f738a;
   border: 1px solid #ebebeb;
@@ -12,16 +12,7 @@ input[type="email"],[type="text"] {
 }
 
 input[type="submit"] {
-font-size: 13px;
-text-transform: uppercase;
-font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
-font-weight: 400;
-font-style: normal;
--webkit-appearance: button;
-cursor: pointer;
-}
-
-button {
+  border-radius: 1.5px;
   width: auto;
   background: #9ecfca;
   color: #4f738a;
@@ -32,7 +23,15 @@ button {
   margin: 15px 15px 15px 0px;
 }
 
-h1 {
-  margin-bottom: 30px;
+form {
+  margin: 3em;
+}
+
+label {
   margin-top: 15px;
+}
+
+h3 {
+  color: #4f738a;
+  margin: 0px 15px 0px 1.7em; 
 }

@@ -1,15 +1,17 @@
-import { Component } from 'react';
+import './Login.css'
+import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { updateRegisterFormData } from '../actions/registerFormActions';
 
+
 class RegisterForm extends Component {
 
-handleRegisterSubmit() = (event) {
+handleRegisterSubmit = (event) => {
   event.preventDefault()
 
 }
 
-handleOnChange() = (event) {
+handleOnChange = (event) => {
   const { name, value } = event.target;
   const currentRegisterData = Object.assign({}, this.props.registerFormData, {
     [name]: value
@@ -20,15 +22,19 @@ handleOnChange() = (event) {
   render() {
     const { email, password } = this.props.registerFormData
     return(
+
       <div>
-        <form onChange={this.handleOnChange} onSubmit={this.handleRegisterSubmit} >
+      <h3>Register</h3>
+        <form className="form-group" onChange={this.handleOnChange} onSubmit={this.handleRegisterSubmit} >
 
           <label htmlFor="email">Email</label>
-          <input type="text" name="email" value={email}>
+          <input className="form-control" type="email" name="email" value={email} />
+
 
           <label htmlFor="password">Password</label>
-          <input type="text" name="password" value={password}>
+          <input className="form-control" type="text" name="password" value={password} />
 
+          <input type="submit" />
         </form>
       </div>
     )
@@ -40,6 +46,6 @@ const mapStateToProps = (state) => {
   return {
     registerFormData: state.registerFormData
   }
-}}
+}
 
-export default connect(mapStateToProps)(RegisterForm);
+export default connect(mapStateToProps, { updateRegisterFormData })(RegisterForm);

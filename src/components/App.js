@@ -6,14 +6,16 @@ import ProductForm from '../containers/ProductForm';
 import Home from './Home';
 import Blog from '../containers/Blog'
 import LoginForm from '../containers/LoginForm'
+import RegisterForm from '../containers/RegisterForm'
+
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      auth: Auth.isUserAuthenticated(),
-    }
-  }
+  // constructor() {
+    // super()
+    // this.state = {
+      // auth: Auth.isUserAuthenticated(),
+    // }
+  // }
   render() {
     console.log(this.state)
     return (
@@ -24,7 +26,9 @@ class App extends Component {
         <NavLink className="navbar-nav" to='/new'>New</NavLink>
         <NavLink id="shop" className="navbar-nav" to='/products'>Shop</NavLink>
         <NavLink id="inspo" className="navbar-nav" to='/inspo'>Inspo</NavLink>
+        <NavLink id="register" className="navbar-nav" to='/register'>Register</NavLink>
         <Route path='/account' component={LoginForm} />
+        <Route path='/register' component={RegisterForm} />
         <Route path='/inspo' component={Blog} />
         <Route exact path='/' component={Home} />
         <Route  path='/products' component={Products} />

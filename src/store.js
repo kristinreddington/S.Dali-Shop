@@ -8,11 +8,13 @@ import thunk from 'redux-thunk';
 import products from './reducers/products'
 import productFormData from './reducers/productFormData'
 import posts from './reducers/posts'
+import registerFormData from './reducers/registerFormData'
 
 const reducers = combineReducers( {
   products,
   productFormData,
-  posts
+  posts,
+  registerFormData
 });
 
 const middleware = [thunk];

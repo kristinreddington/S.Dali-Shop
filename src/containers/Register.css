@@ -12,13 +12,14 @@ input[type="email"],[type="text"] {
 }
 
 input[type="submit"] {
-font-size: 13px;
-text-transform: uppercase;
-font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
-font-weight: 400;
-font-style: normal;
--webkit-appearance: button;
-cursor: pointer;
+  width: auto;
+  background: #9ecfca;
+  color: #4f738a;
+  box-shadow: none;
+  border-color: #c9c9c9;
+  transition: background-color 300ms ease-out;
+  padding: 0 15px;
+  margin: 15px 15px 15px 0px;
 }
 
 button {
