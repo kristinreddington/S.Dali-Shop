@@ -87,27 +87,24 @@ class App extends Component {
       <div>
         <NavLink className="navbar-brand" to='/'>S.Dali</NavLink>
         <NavLink id="user" className="navbar-nav" to='/account'>Account</NavLink>
-        <NavLink className="navbar-nav" to='/new'>New</NavLink>
         <NavLink id="shop" className="navbar-nav" to='/products'>Shop</NavLink>
         <NavLink id="inspo" className="navbar-nav" to='/inspo'>Inspo</NavLink>
         <NavLink id="register" className="navbar-nav" to='/register'>Register</NavLink>
-        <NavLink to='/dash' className="navbar-nav">Dash</NavLink>
-        <span onClick={this.handleLogOut}>Logout</span>
+        {(this.state.auth) ? <NavLink to='/dash' className="navbar-nav">Dash</NavLink> : ''}
+        {(this.state.auth) ? <span onClick={this.handleLogOut}>Logout</span> : ''}
 
         <Route path='/account' render={() => (this.state.auth)
           ? <Redirect to="/dash" />
           : <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
 
-        <Route path='/register'render={ () => (this.state.auth)
+        <Route path='/register' render={() => (this.state.auth)
           ? <Redirect to="/dash" />
           : <RegisterForm handleRegisterSubmit={this.handleRegisterSubmit}/>} />
 
         <Route path='/dash' component={Dashboard} />
-
         <Route path='/inspo' component={Blog} />
         <Route exact path='/' component={Home} />
         <Route  path='/products' component={Products} />
-        <Route path='/new' component={ProductForm} />
       </div>
       </Router>
     )

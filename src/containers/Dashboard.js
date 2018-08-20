@@ -28,7 +28,8 @@ class Dashboard extends Component {
   render(){
     return(
       <div>
-        <p>{this.state.email}</p> 
+        <h3>Welcome!</h3>
+        <p>{this.state.email}</p>
       </div>
     )
   }

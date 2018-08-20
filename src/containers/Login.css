@@ -1,4 +1,4 @@
-input[type="email"],[type="text"] {
+input[type="email"],[type="password"] {
   font-size: 12px;
   border-radius: 3px;
   background: #ffffff;
@@ -33,5 +33,5 @@ label {
 
 h3 {
   color: #4f738a;
-  margin: 0px 15px 0px 1.7em; 
+  margin: 0px 15px 0px 1.7em;
 }
