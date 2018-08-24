@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Auth from '../helpers/Auth'
 import './Dash.css'
 
@@ -7,6 +8,7 @@ class Dashboard extends Component {
     super();
     this.state = {
       email: null,
+      cart: [],
     }
   }
 
@@ -21,6 +23,7 @@ class Dashboard extends Component {
       .then(res => {
         this.setState({
           email: res.user.email,
+          cart: res.user.cart
         })
       }).catch(error => console.log(error))
   }
@@ -30,9 +33,10 @@ class Dashboard extends Component {
       <div>
         <h3>Welcome!</h3>
         <p>{this.state.email}</p>
+        <p>{this.state.cart.map( line_item => <p> {line_item.product_name}</p>)}</p>
       </div>
     )
   }
 }
 
-export default Dashboard;
+export default (Dashboard);

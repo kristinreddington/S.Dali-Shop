@@ -1,0 +1,27 @@
+import React, { component } from 'react';
+
+
+class ProductCard extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  addToCart = (event) => {
+    event.preventDefault();
+    console.log("hello!")
+  }
+
+  render()
+  return (
+    <div key={product.id} className="Product-card">
+    <h3 id="Product-name">{product.name}</h3>
+    <img id="Product-image" src={product.image_url} alt={product.name} />
+    <p id="Product-price">${product.price}</p>
+    <p id="Product-description">{product.description}</p><br /><br />
+    <button type="submit" onSubmit={this.addToCart} value={product.id}>Add to Cart</button>
+  </div>
+  )
+
+}
+
+export default ProductCard; 

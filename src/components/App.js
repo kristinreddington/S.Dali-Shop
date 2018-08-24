@@ -15,12 +15,12 @@ class App extends Component {
      super()
      this.state = {
        auth: Auth.isUserAuthenticated(),
-       shouldGoToDash: false,
      }
       this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this),
       this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
       this.handleLogOut = this.handleLogOut.bind(this)
    }
+
 
     handleRegisterSubmit(event, data) {
       event.preventDefault();
@@ -37,7 +37,6 @@ class App extends Component {
         Auth.authenticateToken(res.token);
         this.setState({
           auth: Auth.isUserAuthenticated(),
-          shouldGoToDash: true,
         });
       }).catch(error => {
         console.log(error)
@@ -57,7 +56,6 @@ class App extends Component {
           Auth.authenticateToken(res.token);
           this.setState({
             auth: Auth.isUserAuthenticated(),
-            shouldGoToDash: true,
           });
       }).catch(error => {
         console.log(error)
@@ -83,21 +81,21 @@ class App extends Component {
   render() {
 
     return (
-      <Router>
+    <Router>
       <div>
         <NavLink className="navbar-brand" to='/'>S.Dali</NavLink>
-        <NavLink id="user" className="navbar-nav" to='/account'>Account</NavLink>
+        <NavLink id="user" className="navbar-nav" to='/login'>Account</NavLink>
         <NavLink id="shop" className="navbar-nav" to='/products'>Shop</NavLink>
         <NavLink id="inspo" className="navbar-nav" to='/inspo'>Inspo</NavLink>
         <NavLink id="register" className="navbar-nav" to='/register'>Register</NavLink>
         {(this.state.auth) ? <NavLink to='/dash' className="navbar-nav">Dash</NavLink> : ''}
         {(this.state.auth) ? <span onClick={this.handleLogOut}>Logout</span> : ''}
 
-        <Route path='/account' render={() => (this.state.auth)
+        <Route path='/login' render={() => (this.state.auth)
           ? <Redirect to="/dash" />
           : <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
 
-        <Route path='/register' render={() => (this.state.auth)
+        <Route path='/register' render={ () => (this.state.auth)
           ? <Redirect to="/dash" />
           : <RegisterForm handleRegisterSubmit={this.handleRegisterSubmit}/>} />
 
@@ -106,7 +104,7 @@ class App extends Component {
         <Route exact path='/' component={Home} />
         <Route  path='/products' component={Products} />
       </div>
-      </Router>
+    </Router>
     )
   }
 }

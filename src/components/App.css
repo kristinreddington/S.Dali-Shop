@@ -48,7 +48,7 @@
     content:"🛍️  ";
 }
 
-#user:hover:before {
+#user:hover:before, #register:hover:before {
     content:"👥  ";
 }
 .navbar-nav:hover:after {
