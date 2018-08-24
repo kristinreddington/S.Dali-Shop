@@ -1,7 +1,10 @@
 class ApiController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
+  include ActionController::HttpAuthentication::Basic::ControllerMethods
+  include ActionController::HttpAuthentication::Digest::ControllerMethods
   #helper_method :require_login, :current_user
   #acts_as_token_authentication_handler_for User, fallback: :none
+  before_action :authenticate_token, :only => [:current_cart]
 
   def require_login
     authenticate_token || render_unauthorized("Access denied")
@@ -12,11 +15,18 @@ class ApiController < ActionController::API
     @current_user ||= authenticate_token
   end
 
-  def current_order
-    if !session[:order_id].nil?
-      Order.find(session[:order_id])
+  def current_cart
+    current_user
+    if @current_user.cart
+      @cart = @current_user.cart
     else
-      Order.new
+      @cart = Cart.create(:user_id => user.id)
+    end
+  end
+
+  def authenticate_token
+      authenticate_with_http_token do |token, options|
+       user = User.find_by(auth_token: token)
     end
   end
 
@@ -29,10 +39,5 @@ class ApiController < ActionController::API
 
   private
 
-  def authenticate_token
-    authenticate_with_http_token do |token, options|
-      User.find_by(auth_token: token)
-    end
-  end
 
 end

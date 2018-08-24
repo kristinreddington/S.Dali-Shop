@@ -1,12 +1,9 @@
 class Api::OrderItemsController < ApiController
 
   def create
-    @order = current_order
-    @order_item = OrderItem.new(order_item_params)
-    @order.order_items << @order_item
+    @cart = current_order
+    @order_item = @cart.order_items.new(order_item_params)
     @order.save
-    @order_item.save
-    session[:order_id] = @order.id
     render json: @order_item
   end
 
@@ -22,15 +19,7 @@ class Api::OrderItemsController < ApiController
 
   private
   def order_item_params
-    params.require(:order_item).permit(:quantity, :product_id)
-  end
-
-  def current_order
-    if !session[:order_id].nil?
-      Order.find(session[:order_id])
-    else
-      Order.new
-    end
+    params.require(:order_item).permit(:quantity, :product_id, :order_id)
   end
 
 end

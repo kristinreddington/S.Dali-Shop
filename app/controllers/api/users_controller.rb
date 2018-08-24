@@ -8,7 +8,7 @@ class Api::UsersController < ApiController
 
   def profile
     user = User.find_by_auth_token!(request.headers[:token])
-    render json: { user: { email: user.email } }
+    render json: { user: { email: user.email, cart: user.cart.line_items } }
   end
 
   private

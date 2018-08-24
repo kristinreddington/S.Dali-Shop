@@ -3,7 +3,7 @@ class OrderItem < ApplicationRecord
   belongs_to :product
 
   validate :product_present
-  validate :order_present
+  #validate :order_present
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :quantity, :presence => true
 
