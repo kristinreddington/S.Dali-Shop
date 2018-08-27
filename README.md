@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+Products model
+
+-name
+-price
+-description
+-image_url 
+=======
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -2442,3 +2450,4 @@ In the future, we might start automatically compiling incompatible third-party m
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+>>>>>>> 11ad2c8f6f7e30780668fc5279a9df3514d3e4b6
