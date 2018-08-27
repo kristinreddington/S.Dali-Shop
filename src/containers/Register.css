@@ -1,0 +1,39 @@
+input[type="email"],[type="text"] {
+  font-size: 12px;
+  border-radius: 2px;
+  background: #ffffff;
+  color: #4f738a;
+  border: 1px solid #ebebeb;
+  letter-spacing: 0.8px;
+  padding: 0 15px;
+  margin: 0;
+  width: auto;
+  vertical-align: top;
+}
+
+input[type="submit"] {
+  width: auto;
+  background: #9ecfca;
+  color: #4f738a;
+  box-shadow: none;
+  border-color: #c9c9c9;
+  transition: background-color 300ms ease-out;
+  padding: 0 15px;
+  margin: 15px 15px 15px 0px;
+}
+
+button {
+  width: auto;
+  background: #9ecfca;
+  color: #4f738a;
+  box-shadow: none;
+  border-color: #c9c9c9;
+  transition: background-color 300ms ease-out;
+  padding: 0 15px;
+  margin: 15px 15px 15px 0px;
+}
+
+h1 {
+  margin-bottom: 30px;
+  margin-top: 15px;
+}

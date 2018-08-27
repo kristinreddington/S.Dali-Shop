@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   get 'order_items/create'
   get 'order_items/update'
   get 'order_items/destroy'
-  #devise_for :admin_users, ActiveAdmin::Devise.config
-  #ActiveAdmin.routes(self)
 
   namespace :api do
     post '/login' => 'sessions#create'
@@ -15,5 +13,4 @@ Rails.application.routes.draw do
     resources :users, :except => [:new, :edit]
     resources :carts, :only => [:show]
   end
-
 end

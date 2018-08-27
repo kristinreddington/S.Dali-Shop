@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.Nav-link {
+
+  display: inline-block;
+}
+/* Bootstrap override */
+.navbar-brand {
+  margin-left: 30px;
+  color: #4f738a;
+}
+.navbar-brand:hover {
+  color: #4f738a;
+}
+.navbar-brand:hover:after {
+    bottom: 2px;
+    color: #4f738a;
+    content: "▐";
+}
+/*I like this color */
+/*rgb(252,233,229)*/
+#inspo:hover:before {
+  content: "🌸  ";
+}
+#shop:hover:before {
+    content:"🛍️  ";
+}
+
+#user:hover:before {
+    content:"👥  ";
+}
+.navbar-nav:hover:after {
+    bottom: 2px;
+    color: #4f738a;
+    content: "▐";
+}
+
+.navbar-nav {
+  color: rgb(154,208,202);
+  display: inline-block;
+  margin: 2em;
+}
+.navbar-nav:hover {
+  color: rgb(154,208,202);
+  text-decoration: none;
+}
