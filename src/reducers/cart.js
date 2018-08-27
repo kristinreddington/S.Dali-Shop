@@ -1,9 +1,12 @@
 export default (state = [], action) => {
   switch (action.type) {
-    case 'ADD_PRODUCT':
+    case 'SET_CART':
+    return action.cart
+
+    case 'ADD_PRODUCT_TO_CART':
     return [...state, action.product]
 
-    case 'REMOVE_PRODUCT':
+    case 'REMOVE_ITEM_FROM_CART':
     const firstMatchIndex = state.indexOf(action.payload)
     return state.filter((item, index) => index !== firstMatchIndex )
 

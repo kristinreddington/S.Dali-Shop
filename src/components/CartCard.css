@@ -1,0 +1,32 @@
+.Cart-card {
+ display: flex;
+ flex: 1;
+ flex-flow: row wrap;
+ background: #fff;
+ margin: .5rem;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+ width: 30%;
+ align-items: center;
+}
+
+.Cart-card-item  {
+  text-align: center;
+  margin: 10px
+}
+
+.Cart-card:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#line_item-image {
+  width: 50%;
+}
+
+h1 {
+  color: #4f738a;
+}
+
+p {
+  font-family:  monospace;
+}

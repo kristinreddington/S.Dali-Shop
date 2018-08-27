@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
-import ProductForm from '../containers/ProductForm'
+import './Home.css'
 const Home = () => {
   return (
     <div>
       <hr />
+      <img id="dress" src="/dresses.jpg" alt="Welcome!"></img>
     </div>
+
+
   )
 }
 export default Home;

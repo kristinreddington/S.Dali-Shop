@@ -1,0 +1,27 @@
+#main-div {
+background-image: url('/background.png')
+}
+
+#float {
+  width: 310px;
+  height: 75px;
+  float: left;
+  margin: 5px;
+}
+
+#dress {
+  width: 850px;
+  height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.text {
+  visibility: hidden;
+  height: 40px;
+}
+
+.k {
+  border: thick solid white;
+}

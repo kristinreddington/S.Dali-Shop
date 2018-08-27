@@ -9,3 +9,17 @@ button {
   padding: 0 15px;
   margin: 15px 15px 15px 15px;
 }
+
+#email {
+  text-align: center;
+  color: #4f738a;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
+  color: #4f738a;
+  margin: 10px; 
+}

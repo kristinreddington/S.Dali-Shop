@@ -51,6 +51,7 @@
 #user:hover:before, #register:hover:before {
     content:"👥  ";
 }
+
 .navbar-nav:hover:after {
     bottom: 2px;
     color: #4f738a;

@@ -1,6 +1,4 @@
 import React from 'react';
-import addToCart from '../actions/cartActions'
-import CartButton from '../containers/CartButton'
 
 const ProductCard = (props) => (
     <div key={props.product.id} className="Product-list-item">
@@ -11,7 +9,7 @@ const ProductCard = (props) => (
     <form
     onSubmit={() => props.addToCart(props)}
     ><input type="hidden" name="user" value={props.auth} />
-    <input type="submit" text="Add to cart"/> </form>
+    <input type="submit" value="Add to cart"/> </form>
   </div>
 )
 
