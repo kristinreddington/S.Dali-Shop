@@ -14,7 +14,7 @@ class Api::LineItemsController < ApiController
     if @user.cart
       @cart = @user.cart
     else
-      @cart.Cart.new(:user_id => @user.id)
+      @cart = Cart.new(:user_id => @user.id)
     end
     @cart.line_items << @line_item
     @cart.save
