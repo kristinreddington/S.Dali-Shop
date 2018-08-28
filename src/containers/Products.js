@@ -7,19 +7,32 @@ import { addToCart, removeFromCart } from '../actions/cartActions';
 import './Products.css'
 
 class Products extends Component {
+  constructor() {
+    super()
+    this.state = {
+      counter: 0
+    }
+  }
 
   componentDidMount() {
     this.props.getProducts()
   }
 
-render() {
-  return (
-    <div className="Product-card">
-    {this.props.products.map(product => <ProductCard auth={this.props.auth} cart={this.props.cart} addToCart={this.props.addToCart} key={product.id} product={product} />)}
-    </div>
-    )
+  handleCounter = (event) => {
+    event.preventDefault();
+    this.setState ({
+      counter: this.state.counter += 1
+    })
   }
-};
+
+  render() {
+    return (
+      <div className="Product-card">
+      {this.props.products.map(product => <ProductCard auth={this.props.auth} cart={this.props.cart} counter={this.state.counter} addToCart={this.props.addToCart} key={product.id} product={product} />)}
+      </div>
+      )
+    }
+  };
 
 const mapStateToProps = (state) => {
   return ({

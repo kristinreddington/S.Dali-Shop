@@ -76,7 +76,7 @@ export const removeFromCart = (props) => {
       .then(line_item => {
         dispatch(removeItemFromCart(line_item))
       })
-      
+      .then(dispatch(getCartItems()))
       .catch(error => console.log(error))
   }
 }

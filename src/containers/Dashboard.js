@@ -22,7 +22,8 @@ class Dashboard extends Component {
 
         <h4>Shopping Cart</h4><hr />
         <div className="Cart-card">
-        {this.props.cart.map( line_item => <CartCard key={line_item.id} getCartItems={this.props.getCartItems} removeFromCart={this.props.removeFromCart} line_item={line_item} />)}
+        {this.props.cart.map( line_item => <CartCard handleCounter={this.handleCounter} key={line_item.id} getCartItems={this.props.getCartItems} removeFromCart={this.props.removeFromCart} line_item={line_item} />
+         )}
         </div>
       </div>
     )
