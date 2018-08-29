@@ -3,7 +3,7 @@ import Auth from '../helpers/Auth'
 
 export const createUser = user => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/users', {
+    return fetch('https://s-dali-shop-app-api.herokuapp.com/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
