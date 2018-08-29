@@ -28,7 +28,7 @@ class Products extends Component {
   render() {
     return (
       <div className="Product-card">
-      {this.props.products.map(product => <ProductCard auth={this.props.auth} cart={this.props.cart} counter={this.state.counter} addToCart={this.props.addToCart} key={product.id} product={product} />)}
+      {this.props.products.map(product => <ProductCard auth={this.props.auth} handleCounter={this.handleCounter} cart={this.props.cart} counter={this.state.counter} addToCart={this.props.addToCart} key={product.id} product={product} />)}
       </div>
       )
     }
