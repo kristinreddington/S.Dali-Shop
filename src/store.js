@@ -9,12 +9,16 @@ import products from './reducers/products'
 import productFormData from './reducers/productFormData'
 import posts from './reducers/posts'
 import registerFormData from './reducers/registerFormData'
+import cart from './reducers/cart'
+import email from './reducers/email'
 
 const reducers = combineReducers( {
   products,
   productFormData,
   posts,
-  registerFormData
+  registerFormData,
+  cart,
+  email
 });
 
 const middleware = [thunk];

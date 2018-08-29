@@ -1,11 +1,13 @@
-button {
-  border-radius: 1.5px;
-  width: auto;
-  background: #9ecfca;
+#email {
+  text-align: center;
   color: #4f738a;
-  box-shadow: none;
-  border-color: #c9c9c9;
-  transition: background-color 300ms ease-out;
-  padding: 0 15px;
-  margin: 15px 15px 15px 15px;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
+  color: #4f738a;
+  margin: 10px;
 }

@@ -14,13 +14,6 @@ class RegisterForm extends Component {
     this.handleOnChange = this.handleOnChange.bind(this)
   }
 
- // handleRegisterSubmit = (event) => {
- //   event.preventDefault();
- //   this.props.createUser(this.props.registerFormData)
- //   this.props.updateUserAuth()
- //
- // }
-
 handleOnChange = (event) => {
   const name = event.target.name;
   const value = event.target.value;
@@ -58,12 +51,5 @@ handleOnChange = (event) => {
   }
 
 }
-
-// const mapStateToProps = (state) => {
-  // return {
-    // registerFormData: state.registerFormData
-    // auth: Auth.isUserAuthenticated()
-  // }
-// }
 
 export default RegisterForm;
