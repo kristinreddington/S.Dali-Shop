@@ -1,7 +1,8 @@
 {
   "name": "s-dali-shop-client",
   "engines": {
-    "node": "6.11.2"
+    "node": "6.11.2",
+    "npm": "6.3.0"
   },
   "version": "0.1.0",
   "private": true,
