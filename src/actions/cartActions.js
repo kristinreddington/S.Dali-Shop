@@ -32,7 +32,7 @@ const removeItemFromCart = product => {
 
 export const getCartItems = () => {
   return (dispatch) => {
-    return fetch('https://s-dali-shop-app-api.herokuapp.com/api/profile', {
+    return fetch('http://localhost:3001/api/profile', {
       method: 'GET',
       headers: {
         token: Auth.getToken(),
@@ -47,7 +47,7 @@ export const getCartItems = () => {
 export const addToCart = (props) => {
 
   return (dispatch) => {
-    fetch('https://s-dali-shop-app-api.herokuapp.com/api/line_items', {
+    fetch('http://localhost:3001/api/line_items', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ export const addToCart = (props) => {
 export const removeFromCart = (props) => {
   console.log(props)
   return (dispatch) => {
-    fetch(`https://s-dali-shop-app-api.herokuapp.com/api/line_items/${props}`, {
+    fetch(`http://localhost:3001/api/line_items/${props}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

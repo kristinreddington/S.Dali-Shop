@@ -23,7 +23,7 @@ class Nav extends Component {
 
  handleRegisterSubmit(event, data) {
    event.preventDefault();
-   fetch('https://s-dali-shop-app-api.herokuapp.com/api/users', {
+   fetch('http://localhost:3001/api/users', {
      method: 'POST',
      body: JSON.stringify({
        user: data,
@@ -44,7 +44,7 @@ class Nav extends Component {
 
  handleLoginSubmit(event, data) {
    event.preventDefault();
-   fetch('https://s-dali-shop-app-api.herokuapp.com/api/login', {
+   fetch('http://localhost:3001/api/login', {
      method: 'POST',
      body: JSON.stringify(data),
      headers: {
@@ -62,7 +62,7 @@ class Nav extends Component {
  }
 
  handleLogOut() {
-   fetch('https://s-dali-shop-app-api.herokuapp.com/api/logout', {
+   fetch('http://localhost:3001/api/logout', {
      method: 'DELETE',
      headers: {
        token: Auth.getToken(),

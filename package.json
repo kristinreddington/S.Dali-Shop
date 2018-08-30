@@ -8,7 +8,7 @@
   "private": true,
   "proxy": {
     "/api": {
-      "target": "https://s-dali-shop-app-api.herokuapp.com/"
+      "target": "http://localhost:3001"
     }
   },
   "dependencies": {

@@ -20,7 +20,7 @@ const addProduct = product => {
 // ** Async Actions ** //
 export const getProducts = () => {
   return (dispatch) => {
-    return fetch('https://s-dali-shop-app-api.herokuapp.com/api/products')
+    return fetch('http://localhost:3001/api/products')
     .then(res => res.json())
     .then(products => dispatch(setProducts(products)))
     .catch(error => console.log(error))
@@ -29,7 +29,7 @@ export const getProducts = () => {
 
 export const createProduct = product => {
   return dispatch => {
-    return fetch('https://s-dali-shop-app-api.herokuapp.com/api/products', {
+    return fetch('http://localhost:3001/api/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
