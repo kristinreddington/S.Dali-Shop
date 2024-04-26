@@ -1,10 +1,10 @@
 import {
-  createStore,
   applyMiddleware,
   combineReducers,
   compose
 } from 'redux';
-import thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit';
+import {thunk} from 'redux-thunk';
 import products from './reducers/products'
 import productFormData from './reducers/productFormData'
 import posts from './reducers/posts'
@@ -12,7 +12,7 @@ import registerFormData from './reducers/registerFormData'
 import cart from './reducers/cart'
 import email from './reducers/email'
 
-const reducers = combineReducers( {
+const reducer = combineReducers({
   products,
   productFormData,
   posts,
@@ -34,6 +34,9 @@ const enhancer = composeEnhancers(
   applyMiddleware(...middleware),
   // other store enhancers if any
 );
-const store = createStore(reducers, enhancer);
+const store = configureStore({
+  reducer, 
+  enhancer
+});
 
 export default store;

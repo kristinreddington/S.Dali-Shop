@@ -6,7 +6,7 @@ class Api::SessionsController < ApiController
       allow_token_to_only_be_used_once_for(user)
       send_token_for_valid_login_of(user)
     else
-      render_unauthorized("Error with email or password")
+      render_unauthorized("Error with email or password") and return false;
     end
   end
 
