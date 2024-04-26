@@ -8,11 +8,11 @@ import { removeFromCart, getCartItems } from '../actions/cartActions'
 class Dashboard extends Component {
 
   componentDidMount() {
-    this.props.getCartItems()
+    this.props.getCartItems();
   }
 
   componentDidUpdate() {
-    this.props.getCartItems()
+    this.props.getCartItems();
   }
 
   render(){

@@ -1,4 +1,4 @@
-class AddProductNameAndPriceToLineItem < ActiveRecord::Migration[5.2]
+class AddProductNameAndPriceToLineItem < ActiveRecord::Migration[7.1]
   def change
     add_column :line_items, :product_name, :string
     add_column :line_items, :product_price, :integer
