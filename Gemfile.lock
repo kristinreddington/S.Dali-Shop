@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 996b7eab0eb3114991e12cf7c1547bfa7a7da90e
+  specs:
+    stripe (11.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -329,6 +335,7 @@ DEPENDENCIES
   sass-rails (~> 6.0.0)
   spring
   spring-watcher-listen
+  stripe!
   tzinfo-data
   uglifier (~> 4.2.0)
 

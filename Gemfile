@@ -15,6 +15,8 @@ gem 'pg', '~> 1.5.6'
 gem 'puma', '6.4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
  gem 'jbuilder', '~> 2.11.5'
+ # stripe for taking payments
+ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
