@@ -1,4 +1,4 @@
-import Auth from '../helpers/Auth';
+import Auth from '../helpers/Auth.ts';
 //** Action Creators **//
 
 export const setCart = cart => {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getProducts } from '../actions/productActions'
 import ProductCard from '../components/ProductCard';
-import Auth from '../helpers/Auth';
+import Auth from '../helpers/Auth.ts';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import './Products.css'
 

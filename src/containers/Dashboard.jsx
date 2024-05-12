@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Auth from '../helpers/Auth'
 import './Dash.css'
 import CartCard from '../components/CartCard';
 import { removeFromCart, getCartItems } from '../actions/cartActions'
