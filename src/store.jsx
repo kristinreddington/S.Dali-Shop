@@ -5,12 +5,12 @@ import {
 } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import {thunk} from 'redux-thunk';
-import products from './reducers/products'
-import productFormData from './reducers/productFormData'
-import posts from './reducers/posts'
-import registerFormData from './reducers/registerFormData'
-import cart from './reducers/cart'
-import email from './reducers/email'
+import products from './reducers/products.ts'
+import productFormData from './reducers/productFormData.ts'
+import posts from './reducers/posts.ts'
+import registerFormData from './reducers/registerFormData.ts'
+import cart from './reducers/cart.ts'
+import email from './reducers/email.ts'
 
 const reducer = combineReducers({
   products,

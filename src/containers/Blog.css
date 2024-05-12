@@ -1,4 +1,4 @@
-.rounded mx-auto d-block {
+.d-block {
   align-items: center;
-  height: 600px;
+  max-width: 500px;
 }

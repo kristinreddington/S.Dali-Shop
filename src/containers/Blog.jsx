@@ -6,7 +6,10 @@ import './Blog.css'
 class Blog extends Component {
 
   componentDidMount() {
-    this.props.getPosts()
+    if (!this.props.posts.length > 0) {
+      this.props.getPosts();
+    }
+    console.log(this.props.posts);
   }
 
 
@@ -14,7 +17,7 @@ class Blog extends Component {
     return (
       <div>
       {this.props.posts.map(post =>
-        <p> <img className="rounded mx-auto d-block" alt={''} src={post.photos[0].alt_sizes[0].url} /> </p>
+        <p> <img key={post.id} className="rounded mx-auto d-block" alt={''} src={post.photos[0].alt_sizes[0].url} /> </p>
       )}
       </div>
     )

@@ -1,4 +1,4 @@
-export default (state = [], action) => {
+export default (state: any[] = [], action) => {
   switch (action.type) {
     case 'SET_CART':
       return action.cart
@@ -8,7 +8,7 @@ export default (state = [], action) => {
 
     case 'REMOVE_ITEM_FROM_CART':
     const firstMatchIndex = state.indexOf(action.payload)
-    return state.filter((item, index) => index !== firstMatchIndex )
+    return state.filter((item, index) => index !== firstMatchIndex)
 
 
     default:

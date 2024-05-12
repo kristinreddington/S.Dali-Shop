@@ -78,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: s-dali-shop-api_production
-  username: s-dali-shop-api
-  password: <%= ENV['S-DALI-SHOP-API_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: s-dali-shop-api_production
+#   username: s-dali-shop-api
+#   password: <%= ENV['S-DALI-SHOP-API_DATABASE_PASSWORD'] %>

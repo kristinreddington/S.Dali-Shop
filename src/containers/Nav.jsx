@@ -6,7 +6,7 @@ import Home from '../components/Home';
 import Blog from './Blog'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
-import Auth from '../helpers/Auth'
+import Auth from '../helpers/Auth.ts'
 import Dashboard from './Dashboard'
 
 class Nav extends Component {
