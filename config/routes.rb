@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :products, :except => [:new, :edit]
     resources :users, :except => [:new, :edit]
     resources :carts, :only => [:show]
+    resources :checkout, :only => [:create]
   end
 end
