@@ -40,7 +40,6 @@ group :development, :test do
 end
 
 # ActiveAdmin
-gem 'devise', '> 4.x'
 gem 'activeadmin'
 gem 'inherited_resources'
 
