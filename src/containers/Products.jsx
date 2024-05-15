@@ -4,7 +4,6 @@ import { getProducts } from '../actions/productActions'
 import ProductCard from './ProductCard';
 import Auth from '../helpers/Auth.ts';
 import { addToCart, removeFromCart } from '../actions/cartActions';
-import { checkoutProduct } from '../actions/productActions';
 import './Products.css'
 import Stripe from './Stripe';
 
@@ -27,18 +26,13 @@ class Products extends Component {
       counter: this.state.counter += 1
     })
   }
-  checkoutProduct = (event) => {
-    console.log(event);
-    this.loadStripe = true;
-    console.log(this.loadStripe)
-  }
 
   render() {
     return (
       <div className="Product-card">
         {this.props.products.map(product =>
           <div>
-            <ProductCard auth={this.props.auth} checkoutProduct={this.checkoutProduct} 
+            <ProductCard auth={this.props.auth}
               handleCounter={this.handleCounter} cart={this.props.cart} counter={this.state.counter} 
               addToCart={this.props.addToCart} key={product.id} product={product} />
           </div>
@@ -57,4 +51,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { getProducts, addToCart, removeFromCart, checkoutProduct })(Products);
+export default connect(mapStateToProps, { getProducts, addToCart, removeFromCart })(Products);
