@@ -1,1 +1,1 @@
-web: bundle exec rails s -p 3001
+web: rake db:migrate bundle exec rails s -p 3001
