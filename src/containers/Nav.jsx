@@ -24,6 +24,7 @@ class Nav extends Component {
 }
 
 handleNav() {
+  console.log('here');
   this.setState({
     nav: !this.state.nav
   });
@@ -121,7 +122,9 @@ handleNav() {
           <li className='w-full font-bold'>
             <NavLink id="logout" className="navbar-nav" to='/' onClick={this.handleLogOut}>Logout</NavLink> 
           </li> : null}
-          <Route path='/login' render={() => (this.state.auth)
+          
+        </ul>
+        <Route path='/login' render={() => (this.state.auth)
             ? <Redirect to="/dash" />
             : <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
 
@@ -131,7 +134,6 @@ handleNav() {
           <Route path='/dash' component={Dashboard} />
           <Route path='/inspo' component={Blog} />
           <Route  path='/products' component={Products} />
-        </ul>
         <Route exact path='/' component={Home} />
         <div className={!this.state.nav ? 'fixed left-0 top-o w-[60%] h-full border-r-gray-900 ease-in-out duration-500' : 'md:hidden fixed left-[-100%]'}>
           <ul className='p-4 uppercase'>
