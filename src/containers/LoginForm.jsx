@@ -41,7 +41,7 @@ class LoginForm extends Component {
           <input className="form-control" type="password" name="password"
           value={this.state.password} onChange={this.handleOnChange} />
 
-          <input type="submit" />
+          <button className='bg-[#9ecfca] w-[150px] max-h-[50px] rounded-md font-medium mx-auto py-2 text-black' type="submit">Submit</button>
         </form>
       </div>
     )

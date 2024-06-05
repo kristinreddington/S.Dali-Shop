@@ -11,30 +11,33 @@ export default function ProductCard (props) {
 
 
     return (
-        <div key={props.product.id} className="max-w-[1240px] mx-auto grid md:grid-cols-2">
+        <div key={props.product.id} className="max-w-[1240px] mx-auto my-8 md:my-0 grid md:grid-cols-2 shadow-xl rounded-lg hover:scale-105 duration-300">
           <img className='max-w-[300px] mx-auto my-4' src={props.product.image_url} alt={props.product.name} />
           <div className='flex flex-col justify-center'>
           <h1 className='md:text4xl sm:text-3xl text-2xl font-bold py-2'>{props.product.name}</h1>
           <p className='font-bold'>${props.product.price}</p>
           <p id="Product-description">{props.product.description}</p><br /><br />
-            <button value={props.product.id} onClick={props.handleCounter}>♡ {props.counter}</button><br />
-            { !loadStripe ? <button className='bg-[#9ecfca] w-[200px] rounded-md font-medium mx-auto py-3 text-black md:mx-0' value={props.product.id} onClick={ (event) => {
+            <button className='w-[150px] font-medium mx-0 py-3 text-white md:mx-0' value={props.product.id} onClick={props.handleCounter}>♡ {props.counter}</button><br />
+            { !loadStripe ? <button className='bg-[black] w-[150px] rounded-md font-medium mx-0 py-3 text-white md:mx-0' value={props.product.id} onClick={ (event) => {
               event.preventDefault()
               setloadStripe(true);
             }}>Buy now</button> : null }
-             { loadStripe ? 
-             <div className='mx-auto py-3 text-black md:mx-0'>
+
+            { loadStripe ? 
+             <div className='text-black mx-0'>
                <Stripe product={props} /> 
-               <button className='bg-[#9ecfca] w-[200px] rounded-md font-medium mx-auto py-3 text-black md:mx-0' value={props.product.id} onClick={ (event) => {
+               <button className='bg-[#9ecfca] w-[150px] rounded-md font-medium mx-0 py-3 text-black' value={props.product.id} onClick={ (event) => {
                event.preventDefault()
-               setloadStripe(true);
+               setloadStripe(false);
              }}>Cancel</button>
-             </div> : null } 
-            <form onSubmit={ (event) => {
-              event.preventDefault()
-              props.addToCart(props)}}>
-              <input className='bg-[#9ecfca] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black md:mx-0' type="submit" value="Add to cart"/>
-            </form>
+             </div> : null }    
+            
+           
+              <button onClick={(event) => {  event.preventDefault()
+              props.addToCart(props) }} className='bg-[#9ecfca] w-[150px] rounded-md font-medium my-6 mx-0 py-3 text-black md:mx-0'value="Add to cart">
+                Add to cart
+              </button>
+          
           </div><br />
       </div>
     )

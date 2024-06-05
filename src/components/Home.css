@@ -4,6 +4,9 @@
   float: left;
   margin: 5px;
 }
+.h-screen{
+  background-image: url(../../public/dresses.jpg);
+}
 
 #dress {
   /* width: 850px; */

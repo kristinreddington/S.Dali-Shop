@@ -15,9 +15,9 @@ class Blog extends Component {
 
   render() {
     return (
-      <div>
+      <div className='bg-[#FFFAF0] w-full py-4 max-w-[1000px] mx-auto grid lg:grid-cols-3 relative'>
       {this.props.posts.map(post =>
-        <p> <img key={post.id} className="rounded mx-auto d-block" alt={''} src={post.photos[0].alt_sizes[0].url} /> </p>
+        <p> <img key={post.id} className="mx-3 d-block py-2 shadow-lg shadow-transparent hover:scale-105 duration-300" alt={'tumblr image'} src={post.photos[0].alt_sizes[0].url} /> </p>
       )}
       </div>
     )

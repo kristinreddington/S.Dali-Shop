@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Nav from '../containers/Nav'
+import Footer from '../containers/Footer';
 
 class App extends Component {
   render() {
     return (
-      <Nav />
+      <div>
+        <Nav />
+        <Footer/>
+      </div>
       )
     }
   }
