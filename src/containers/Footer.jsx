@@ -1,0 +1,40 @@
+import React from 'react'
+import { Link } from 'react-router-dom';
+
+import {
+    FaFacebookSquare,
+    FaGithubSquare,
+    FaInstagram,
+    FaDiscord
+
+} from 'react-icons/fa'
+
+const Footer = () => {
+  return (
+    <div className='shadow-xl max-width-[1240px] mx-auto py-16 px-4 grid row-start-1 md:grid-cols-2 gap-8 text-gray-300'>
+        <div className='col-start-1'>
+            <a href='/'><button className="text-3xl font-bold navbar-brand">S.Dali</button></a>
+            <p className='py-4 text-xs md:text-base'>
+                nunc aliquet bibendum enim facilisis gravida neque 
+                convallis a cras semper auctor neque vitae tempus quam pellentesque nec
+            </p>
+            <div className='flex justify-between md:w-[75%] my-6 '>
+                <FaFacebookSquare size={30}/>
+                <FaGithubSquare size={30}/>
+                <FaInstagram size={30}/>
+                <FaDiscord size={30}/>
+            </div>
+        </div>
+            <div className='md:col-span-2 flex justify-between mt-6'>
+                <ul className='flex'>
+                    <li className='py-2 px-2 text-sm'>Home</li>
+                    <li className='py-2 px-2 text-sm'>Contact</li>
+                    <li className='py-2 px-2 text-sm'>Shop</li>
+                    <li className='py-2 px-2 text-sm'>Inspo</li>
+                </ul>
+            </div>
+    </div>
+  )
+}
+
+export default Footer

@@ -29,7 +29,7 @@ class Products extends Component {
 
   render() {
     return (
-      <div className="w-full bg-white py-16 px-4">
+      <div className="w-full py-16 px-4">
         {this.props.products.map(product =>
           <div>
             <ProductCard auth={this.props.auth}

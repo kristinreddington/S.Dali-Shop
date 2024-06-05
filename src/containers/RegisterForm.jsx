@@ -28,7 +28,6 @@ handleOnChange = (event) => {
     return(
 
       <div>
-      <h3>Register</h3>
 
         <form className="form-group"
         onSubmit={(e) =>
@@ -42,9 +41,8 @@ handleOnChange = (event) => {
 
           <label htmlFor="password">Password</label>
           <input className="form-control" type="password" name="password"
-          value={this.state.password} onChange={this.handleOnChange} />
-
-          <input type="submit" />
+          value={this.state.password} onChange={this.handleOnChange} /><br/>
+          <button className='bg-[#9ecfca] w-[150px] max-h-[50px] rounded-md font-medium mx-auto py-2 text-black' type="submit">Submit</button>
         </form>
       </div>
     )

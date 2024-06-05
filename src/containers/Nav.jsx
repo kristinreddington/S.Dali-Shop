@@ -96,7 +96,7 @@ handleNav() {
           <h1>
             <NavLink className="w-full text-3xl font-bold navbar-brand" to='/'>S.Dali</NavLink>
           </h1>
-          <div className='block md:hidden' onClick={this.handleNav}>{!this.state.nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20}/>}
+          <div className='block md:hidden' onClick={this.handleNav}>{this.state.nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20}/>}
           </div>
         </div>
         <ul className='hidden md:flex'>
@@ -135,7 +135,7 @@ handleNav() {
           <Route path='/inspo' component={Blog} />
           <Route  path='/products' component={Products} />
         <Route exact path='/' component={Home} />
-        <div className={!this.state.nav ? 'fixed left-0 top-o w-[60%] h-full border-r-gray-900 ease-in-out duration-500' : 'md:hidden fixed left-[-100%]'}>
+        <div className={this.state.nav ? 'fixed left-0 top-o w-[60%] h-full border-r-gray-900 ease-in-out duration-500' : 'md:hidden fixed left-[-100%]'}>
           <ul className='p-4 uppercase'>
             {!(this.state.auth) ?
             <li className='p-4 border-b border-gray-600'>
