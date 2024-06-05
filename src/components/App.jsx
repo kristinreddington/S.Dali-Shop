@@ -7,6 +7,7 @@ class App extends Component {
     return (
       <div>
         <Nav />
+        <hr></hr>
         <Footer/>
       </div>
       )

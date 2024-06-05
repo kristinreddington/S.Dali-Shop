@@ -37,7 +37,6 @@
 .navbar-brand:hover:after {
     bottom: 2px;
     color: #4f738a;
-    content: "▐";
 }
 /*I like this color */
 /*rgb(252,233,229)*/
@@ -55,7 +54,6 @@
 .navbar-nav:hover:after {
     bottom: 2px;
     color: #4f738a;
-    content: "▐";
 }
 
 .navbar-nav {

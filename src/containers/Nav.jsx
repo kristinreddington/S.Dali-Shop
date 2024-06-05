@@ -8,7 +8,8 @@ import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import Auth from '../helpers/Auth.ts'
 import Dashboard from './Dashboard'
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineMenu, AiFillCaretDown } from 'react-icons/ai'
+import { GoChevronDown } from "react-icons/go";
 
 class Nav extends Component {
   constructor() {
@@ -101,8 +102,14 @@ handleNav() {
         </div>
         <ul className='hidden md:flex'>
           {!(this.state.auth) ?
-          <li className='w-full font-bold'>
-             <NavLink id="user" className="navbar-nav" to='/login'>Account</NavLink>
+          <li className='w-full font-bold relative'>
+             <button id="user" className="navbar-nav" to='/login'>
+                Account<GoChevronDown size={20} className='text-white inline hover:bg-[#4f738a]'/>
+             </button>
+             <div className='absolute hidden bg-sky-700 text-white rounded-b-lg pb-2 w-48 mt-[-20px]'>
+              <NavLink id="user" className="navbar-nav" to='/login'>Login</NavLink>
+              <NavLink id="register" className="navbar-nav" to='/register'>Register</NavLink>
+             </div>
           </li> : null}
           <li className='w-full font-bold'>
             <NavLink id="shop" className="navbar-nav" to='/products'>Shop</NavLink>
@@ -124,22 +131,11 @@ handleNav() {
           </li> : null}
           
         </ul>
-        <Route path='/login' render={() => (this.state.auth)
-            ? <Redirect to="/dash" />
-            : <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
-
-          <Route path='/register' render={ () => (this.state.auth)
-            ? <Redirect to="/dash" />
-            : <RegisterForm handleRegisterSubmit={this.handleRegisterSubmit}/>} />
-          <Route path='/dash' component={Dashboard} />
-          <Route path='/inspo' component={Blog} />
-          <Route  path='/products' component={Products} />
-        <Route exact path='/' component={Home} />
         <div className={this.state.nav ? 'fixed left-0 top-o w-[60%] h-full border-r-gray-900 ease-in-out duration-500' : 'md:hidden fixed left-[-100%]'}>
           <ul className='p-4 uppercase'>
             {!(this.state.auth) ?
             <li className='p-4 border-b border-gray-600'>
-              <NavLink id="user" className="navbar-nav" to='/login'>Account</NavLink>
+              <NavLink id="user" className="navbar-nav" to='/login'>Account<GoChevronDown className='text-white' size={20} /></NavLink>
             </li> : null}
             <li className='p-4 border-b border-gray-600'>
               <NavLink id="shop" className="navbar-nav" to='/products'>Shop</NavLink>
@@ -171,6 +167,17 @@ handleNav() {
             <Route  path='/products' component={Products} />
           </ul>
         </div>
+        <Route path='/login' render={() => (this.state.auth)
+            ? <Redirect to="/dash" />
+            : <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
+
+          <Route path='/register' render={ () => (this.state.auth)
+            ? <Redirect to="/dash" />
+            : <RegisterForm handleRegisterSubmit={this.handleRegisterSubmit}/>} />
+          <Route path='/dash' component={Dashboard} />
+          <Route path='/inspo' component={Blog} />
+          <Route  path='/products' component={Products} />
+        <Route exact path='/' component={Home} />
       </div>
     </Router>
   )
