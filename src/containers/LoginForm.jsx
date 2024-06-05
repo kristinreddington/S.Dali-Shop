@@ -25,21 +25,20 @@ class LoginForm extends Component {
   render() {
     return(
       <div>
-      <h3>Log In</h3>
-
         <form className="form-group"
         onSubmit={(e) =>
           this.props.handleLoginSubmit(e, this.state)}
           >
+      <span className='mx-auto block uppercase leading-1.2 tracking-widest text-xl text-gray-300'>Log In</span>
 
-          <label htmlFor="email">Email</label>
+          <label className='text-gray-300' htmlFor="email">Email</label>
           <input className="form-control" type="email" name="email"
           value={this.state.email} onChange={this.handleOnChange} />
 
 
-          <label htmlFor="password">Password</label>
+          <label className='text-gray-300' htmlFor="password">Password</label>
           <input className="form-control" type="password" name="password"
-          value={this.state.password} onChange={this.handleOnChange} />
+          value={this.state.password} onChange={this.handleOnChange} /><br/>
 
           <button className='bg-[#9ecfca] w-[150px] max-h-[50px] rounded-md font-medium mx-auto py-2 text-black' type="submit">Submit</button>
         </form>
