@@ -6,6 +6,7 @@
 }
 .h-screen{
   background-image: url(../../public/dresses.jpg);
+  max-height: 700px;
 }
 
 #dress {

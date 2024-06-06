@@ -11,7 +11,7 @@ const Home = () => {
         Welcome to the community
       </h1>
       <div className='flex justify-center items-center'>
-        <p className='text-xl font-bold py-4'>Ethereal, Classic, Sustainable,</p>
+        <p className='text-xl font-bold py-4 px-2 md:px-0'>Ethereal, Classic, Sustainable,</p>
         <p className='text-xl font-bold md:pl-4 pl-2'><ReactTyped strings={['Vibrant', 'Refreshing', 'Fabulous', 'Iconic', 'Chic']} typeSpeed={120} backSpeed={140} /></p>
       </div>
       <a href='/products'>
