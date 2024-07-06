@@ -5,6 +5,13 @@ import { Provider } from 'react-redux';
 import App from './components/App.jsx';
 import registerServiceWorker from './registerServiceWorker.ts';
 import store from './store.jsx'
+import './fonts/junicode-1.002/FoulisGreek.ttf';
+import './fonts/junicode-1.002/Junicode-Bold.ttf';
+import './fonts/junicode-1.002/Junicode-BoldItalic.ttf';
+import './fonts/junicode-1.002/Junicode-Italic.ttf';
+import './fonts/junicode-1.002/Junicode.ttf';
+import './fonts/murmure/fonts/webfonts/Le_Murmure-Regular_web.ttf'
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

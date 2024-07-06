@@ -57,7 +57,6 @@
 }
 
 .navbar-nav {
-  color: rgb(154,208,202);
   display: inline-block;
   margin: 2em;
 }
@@ -65,3 +64,25 @@
   color: rgb(154,208,202);
   text-decoration: none;
 }
+
+/* Fonts */
+
+.font-face-junicode {
+  font-family: "Junicode";
+}
+.font-face-junicode-italic {
+  font-family: "Junicode-Italic";
+}
+.font-face-junicode-bold {
+  font-family: "Junicode-Bold";
+}
+.font-face-junicode-bold-italic {
+  font-family: "Junicode-BoldItalic";
+}
+.font-face-foulisgreek {
+  font-family: "FoulisGreek";
+}
+.font-face-lemurmure {
+  font-family: "LeMurmure";
+}
+

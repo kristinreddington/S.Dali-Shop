@@ -1,9 +1,56 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background-color: #434341;
+  background-color: #ffff;
 }
+a button {
+  color: #8A515A
+}
+
+@font-face {
+  font-family: "Junicode";
+  src: local("Junicode"),
+   url("./fonts/junicode-1.002/Junicode.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+ }
+ @font-face {
+  font-family: "Junicode-Italic";
+  src: local("Junicode-Italic"),
+   url("./fonts/junicode-1.002/Junicode-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+ }
+ @font-face {
+  font-family: "Junicode-Bold";
+  src: local("Junicode-Bold"),
+   url("./fonts/junicode-1.002/Junicode-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+ }
+ @font-face {
+  font-family: "Junicode-BoldItalic";
+  src: local("Junicode-BoldItalic"),
+   url("./fonts/junicode-1.002/Junicode-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+ }
+ @font-face {
+  font-family: "FoulisGreek";
+  src: local("FoulisGreek"),
+   url("./fonts/junicode-1.002/FoulisGreek.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+ }
+ @font-face {
+  font-family: "LeMurmure";
+  src: local("Le_Murmure-Regular_web"),
+    url("./fonts/le-murmure-july2019/fonts/webfonts/Le_Murmure-Regular_web.ttf") format("trutype");
+ }
+ 
+ 
+ 

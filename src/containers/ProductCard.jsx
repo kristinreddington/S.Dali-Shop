@@ -17,8 +17,8 @@ export default function ProductCard (props) {
           <h1 className='md:text4xl sm:text-3xl text-2xl font-bold py-2'>{props.product.name}</h1>
           <p className='font-bold'>${props.product.price}</p>
           <p id="Product-description">{props.product.description}</p><br /><br />
-            <button className='w-[150px] font-medium mx-0 py-3 text-white md:mx-0' value={props.product.id} onClick={props.handleCounter}>♡ {props.counter}</button><br />
-            { !loadStripe ? <button className='bg-[black] w-[150px] rounded-md font-medium mx-0 py-3 text-white md:mx-0' value={props.product.id} onClick={ (event) => {
+            <button className='text-rose-taupe w-[150px] font-medium mx-0 py-3 md:mx-0' value={props.product.id} onClick={props.handleCounter}>♡ {props.counter}</button><br />
+            { !loadStripe ? <button className='bg-[black] w-[150px] rounded-md font-medium mx-0 py-3 text-rose-taupe md:mx-0' value={props.product.id} onClick={ (event) => {
               event.preventDefault()
               setloadStripe(true);
             }}>Buy now</button> : null }
@@ -26,7 +26,7 @@ export default function ProductCard (props) {
             { loadStripe ? 
              <div className='text-black mx-0'>
                <Stripe product={props} /> 
-               <button className='bg-[#9ecfca] w-[150px] rounded-md font-medium mx-0 py-3 text-black' value={props.product.id} onClick={ (event) => {
+               <button className='bg-[#9ecfca] w-[150px] rounded-md font-medium mx-0 py-3 text-rose-taupe' value={props.product.id} onClick={ (event) => {
                event.preventDefault()
                setloadStripe(false);
              }}>Cancel</button>
@@ -34,7 +34,7 @@ export default function ProductCard (props) {
             
            
               <button onClick={(event) => {  event.preventDefault()
-              props.addToCart(props) }} className='bg-[#9ecfca] w-[150px] rounded-md font-medium my-6 mx-0 py-3 text-black md:mx-0'value="Add to cart">
+              props.addToCart(props) }} className='bg-[#9ecfca] w-[150px] rounded-md font-medium my-6 mx-0 py-3 text-rose-taupe md:mx-0'value="Add to cart">
                 Add to cart
               </button>
           

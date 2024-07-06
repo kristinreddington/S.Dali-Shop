@@ -1,38 +1,72 @@
-import React, { Component } from 'react';
-import '../components/App.css'
-import Products from './Products'
+// components, functions etc
+import React, { Component, useRef, useState, useEffect, useCallback } from 'react';
 import { BrowserRouter as Router, NavLink, Redirect, Route } from 'react-router-dom';
+// icons
+import { AiOutlineClose, AiOutlineMenu, AiFillCaretDown } from 'react-icons/ai'
+import { GoChevronDown } from "react-icons/go";
+// internal components
+import '../components/App.css'
 import Home from '../components/Home';
+import Products from './Products'
 import Blog from './Blog'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import Auth from '../helpers/Auth.ts'
 import Dashboard from './Dashboard'
-import { AiOutlineClose, AiOutlineMenu, AiFillCaretDown } from 'react-icons/ai'
-import { GoChevronDown } from "react-icons/go";
+// Assets
+import Logo from '../assets/Logo.png';
 
-class Nav extends Component {
-  constructor() {
-    super()
-    this.state = {
-      auth: Auth.isUserAuthenticated(),
-      nav: false
-  }
-   this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this)
-   this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
-   this.handleLogOut = this.handleLogOut.bind(this)
-   this.handleNav = this.handleNav.bind(this)
-}
+const Nav = () => {
+ 
+const [accountDropdownOpen, setAccountDropdownOpen] = useState(false);
+const [auth, setAuth] = useState(Auth.isUserAuthenticated());
+const [nav, setNav] = useState(false);
+  
+  const menuRef = useRef();
 
-handleNav() {
-  console.log('here');
-  this.setState({
-    nav: !this.state.nav
+  // const closeOpenMenus = useCallback(
+  //   (e) => {
+  //     if (
+  //       menuRef.current &&
+  //       accountDropdownOpen &&
+  //       !menuRef.current.contains(e.target)
+  //     ) {
+  //       setAccountDropdownOpen(false);
+  //     }
+  //   },
+  //   [accountDropdownOpen]
+  // );
+  
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", closeOpenMenus);
+  // }, [closeOpenMenus]);
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setAccountDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   });
+
+
+function handleNav() {
+  setNav(!nav);
 }
+// function handleAccountDropdown() {
+//   setAccountDropdownOpen(accountDropdownOpen ? false : true);
+// }
+useEffect(() => {
+  console.log(accountDropdownOpen)
+}, [accountDropdownOpen]);
 
 
- handleRegisterSubmit(event, data) {
+ function handleRegisterSubmit(event, data) {
    event.preventDefault();
    fetch('http://localhost:3001/api/users', {
      method: 'POST',
@@ -45,15 +79,13 @@ handleNav() {
    }).then(res => res.json())
      .then(res => {
      Auth.authenticateToken(res.token);
-     this.setState({
-       auth: Auth.isUserAuthenticated(),
-     });
+     setAuth(Auth.isUserAuthenticated())
    }).catch(error => {
      console.log(error)
-   })
+   });
  }
 
- handleLoginSubmit(event, data) {
+ function handleLoginSubmit(event, data) {
    event.preventDefault();
    fetch('http://localhost:3001/api/login', {
      method: 'POST',
@@ -64,15 +96,13 @@ handleNav() {
      }).then(res => res.json())
      .then(res => {
        Auth.authenticateToken(res.token);
-       this.setState({
-         auth: Auth.isUserAuthenticated(),
-       });
+       setAuth(Auth.isUserAuthenticated());
    }).catch(error => {
      console.log(error)
    })
  }
 
- handleLogOut() {
+ function handleLogOut() {
    fetch('http://localhost:3001/api/logout', {
      method: 'DELETE',
      headers: {
@@ -81,99 +111,104 @@ handleNav() {
      }
    }).then(res => {
      Auth.deauthenticateToken();
-     this.setState({
-       auth: Auth.isUserAuthenticated(),
-     })
+     setAuth(Auth.isUserAuthenticated());
    }).then()
    .catch(error => console.log(error))
  }
 
-
- render() {
    return (
      <Router>
       <div>
-        <div className='flex flex-row justify-between'>
-          <h1>
-            <NavLink className="w-full text-3xl font-bold navbar-brand" to='/'>S.Dali</NavLink>
-          </h1>
-          <div className='block md:hidden p-3' onClick={this.handleNav}>{this.state.nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20}/>}
+        <ul className='md:hidden'>
+          <li>
+            <NavLink className="max-w-[300px] font-bold navbar-nav flex pr-5" to='/'>
+              <img src={Logo} />
+            </NavLink>
+          </li>
+        </ul>
+        <div className='right-0 block md:hidden p-3 navbar-nav' onClick={handleNav}>{nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20}/>}
           </div>
-        </div>
         <ul className='hidden md:flex'>
-          {!(this.state.auth) ?
+          <li className='w-full'>
+           <NavLink className="w-full font-bold navbar-nav flex pr-5" to='/'>
+            <img src={Logo} />
+           </NavLink>
+          </li>
           <li className='w-full font-bold relative'>
-             <button id="user" className="navbar-nav" to='/login'>
-                Account<GoChevronDown size={20} className='text-white inline hover:bg-[#4f738a]'/>
+             <button onClick={() => setAccountDropdownOpen(!accountDropdownOpen)} id="user" className="text-rose-taupe navbar-nav" to='/login'>
+                Account<GoChevronDown size={20} className='text-rose-taupe inline'/>
              </button>
-             <div className='absolute hidden bg-sky-700 text-white rounded-b-lg pb-2 w-48 mt-[-20px]'>
-              <NavLink id="user" className="navbar-nav" to='/login'>Login</NavLink>
-              <NavLink id="register" className="navbar-nav" to='/register'>Register</NavLink>
-             </div>
-          </li> : null}
-          <li className='w-full font-bold'>
-            <NavLink id="shop" className="navbar-nav" to='/products'>Shop</NavLink>
+              { (accountDropdownOpen && !auth) ?
+                 <div ref={menuRef} className={accountDropdownOpen ? 'absolute bg-dim-gray text-white rounded-b-md ml-4 w-min mt-[-20px] translate-y-0 ease opacity-1' : 'hidden -translate-y-20 ease'}>
+                  <NavLink id="user" className="text-ash-grey navbar-nav" to='/login'>Login</NavLink>
+                  <NavLink id="register" className="text-ash-grey navbar-nav" to='/register'>Register</NavLink>
+                </div>
+              : null }
+              { (accountDropdownOpen && auth) ?
+                <div ref={menuRef} className='absolute bg-[#577288] text-white rounded-b-md ml-4 w-min mt-[-20px] ease-in-out duration-500'>
+                <NavLink id="user" className="text-ash-grey navbar-nav" to='/logout'>Logout</NavLink>
+              </div>
+              : null }
           </li>
           <li className='w-full font-bold'>
-            <NavLink id="inspo" className="navbar-nav" to='/inspo'>Inspo</NavLink>
+            <NavLink id="shop" className="text-rose-taupe navbar-nav" to='/products'>Shop</NavLink>
           </li>
-          {!(this.state.auth) ?
           <li className='w-full font-bold'>
-             <NavLink id="register" className="navbar-nav" to='/register'>Register</NavLink>
+            <NavLink id="inspo" className="text-rose-taupe navbar-nav" to='/inspo'>Inspo</NavLink>
+          </li>
+          {(auth) ? 
+          <li className='w-full font-bold'>
+            <NavLink to='/dash' className="text-rose-taupe navbar-nav">Dash</NavLink>
           </li> : null}
-          {(this.state.auth) ? 
+          {(auth) ? 
           <li className='w-full font-bold'>
-            <NavLink to='/dash' className="navbar-nav">Dash</NavLink>
-          </li> : null}
-          {(this.state.auth) ? 
-          <li className='w-full font-bold'>
-            <NavLink id="logout" className="navbar-nav" to='/' onClick={this.handleLogOut}>Logout</NavLink> 
+            <NavLink id="logout" className="text-rose-taupe navbar-nav" to='/' onClick={handleLogOut}>Logout</NavLink> 
           </li> : null}
           
         </ul>
-        <div className={this.state.nav ? 'absolute left-0 top-o w-[60%] h-full bg-[#434341] border-r-gray-900 ease-in-out duration-500' : 'md:hidden fixed left-[-100%]'}>
+        <div className={nav ? 'absolute left-0 top-o w-[60%] h-full bg-[#434341] border-r-gray-900 ease-in-out duration-500' : 'md:hidden fixed left-[-100%]'}>
           <ul className='p-4 uppercase'>
-            {!(this.state.auth) ?
+            {!(auth) ?
             <li className='p-4 border-b border-gray-600'>
-              <NavLink id="user" className="navbar-nav" to='/login'>Account<GoChevronDown className='text-white' size={20} /></NavLink>
+              <NavLink id="user" className="text-rose-taupe navbar-nav" to='/login'>Account<GoChevronDown className='text-rose-taupe' size={20} /></NavLink>
             </li> : null}
             <li className='p-4 border-b border-gray-600'>
-              <NavLink id="shop" className="navbar-nav" to='/products'>Shop</NavLink>
+              <NavLink id="shop" className="text-rose-taupe navbar-nav" to='/products'>Shop</NavLink>
             </li>
             <li className='p-4 border-b border-gray-600'>
-              <NavLink id="inspo" className="navbar-nav" to='/inspo'>Inspo</NavLink>
+              <NavLink id="inspo" className="text-rose-taupe navbar-nav" to='/inspo'>Inspo</NavLink>
             </li>
-            {!(this.state.auth) ?
+            {!(auth) ?
             <li className='p-4 border-b border-gray-600'>
-              <NavLink id="register" className="navbar-nav" to='/register'>Register</NavLink>
+              <NavLink id="register" className="text-rose-taupe navbar-nav" to='/register'>Register</NavLink>
             </li> : null}
-            {(this.state.auth) ? 
+            {(auth) ? 
             <li className='p-4 border-b border-gray-600'>
-              <NavLink to='/dash' className="navbar-nav">Dash</NavLink>
+              <NavLink to='/dash' className="text-rose-taupe navbar-nav">Dash</NavLink>
             </li> : null}
-            {(this.state.auth) ? 
+            {(auth) ? 
             <li className='p-4 border-b border-gray-600'>
-              <NavLink id="logout" className="navbar-nav" to='/' onClick={this.handleLogOut}>Logout</NavLink> 
+              <NavLink id="logout" className="text-rose-taupe navbar-nav" to='/' onClick={handleLogOut}>Logout</NavLink> 
             </li> : null}
-            <Route path='/login' render={() => (this.state.auth)
+            <Route path='/login' render={() => (auth)
               ? <Redirect to="/dash" />
-              : <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
+              : <LoginForm handleLoginSubmit={handleLoginSubmit}/>} />
 
-            <Route path='/register' render={ () => (this.state.auth)
+            <Route path='/register' render={ () => (auth)
               ? <Redirect to="/dash" />
-              : <RegisterForm handleRegisterSubmit={this.handleRegisterSubmit}/>} />
+              : <RegisterForm handleRegisterSubmit={handleRegisterSubmit}/>} />
             <Route path='/dash' component={Dashboard} />
             <Route path='/inspo' component={Blog} />
             <Route  path='/products' component={Products} />
           </ul>
         </div>
-        <Route path='/login' render={() => (this.state.auth)
+        <Route path='/login' render={() => (auth)
             ? <Redirect to="/dash" />
-            : <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
+            : <LoginForm handleLoginSubmit={handleLoginSubmit}/>} />
 
-          <Route path='/register' render={ () => (this.state.auth)
+          <Route path='/register' render={ () => (auth)
             ? <Redirect to="/dash" />
-            : <RegisterForm handleRegisterSubmit={this.handleRegisterSubmit}/>} />
+            : <RegisterForm handleRegisterSubmit={handleRegisterSubmit}/>} />
           <Route path='/dash' component={Dashboard} />
           <Route path='/inspo' component={Blog} />
           <Route  path='/products' component={Products} />
@@ -181,6 +216,5 @@ handleNav() {
       </div>
     </Router>
   )
- }
 }
 export default Nav;

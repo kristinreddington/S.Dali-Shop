@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-// import { connect } from 'react-redux';
 import './Login.css'
 
 class LoginForm extends Component {
@@ -40,7 +38,7 @@ class LoginForm extends Component {
           <input className="form-control" type="password" name="password"
           value={this.state.password} onChange={this.handleOnChange} /><br/>
 
-          <button className='bg-[#9ecfca] w-[150px] max-h-[50px] rounded-md font-medium mx-auto py-2 text-black' type="submit">Submit</button>
+          <button className='bg-[#9ecfca] w-[150px] max-h-[50px] rounded-md font-medium mx-auto py-2 text-rose-taupe' type="submit">Submit</button>
         </form>
       </div>
     )
