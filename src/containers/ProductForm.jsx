@@ -40,7 +40,7 @@ handleOnSubmit = (event) => {
           <input type="text" name="description" value={description} />
         </div>
 
-        <button type="submit">Add Product</button>
+        <button className="text-rose-taupe" type="submit">Add Product</button>
     </form>
   </div>
 

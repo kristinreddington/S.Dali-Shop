@@ -25,7 +25,6 @@ input[type="submit"] {
 button {
   width: auto;
   background: #9ecfca;
-  color: #4f738a;
   box-shadow: none;
   border-color: #c9c9c9;
   transition: background-color 300ms ease-out;
