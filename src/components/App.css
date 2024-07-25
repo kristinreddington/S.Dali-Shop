@@ -53,7 +53,6 @@
 
 .navbar-nav:hover:after {
     bottom: 2px;
-    color: #4f738a;
 }
 
 .navbar-nav {
@@ -61,7 +60,6 @@
   margin: 2em;
 }
 .navbar-nav:hover {
-  color: rgb(154,208,202);
   text-decoration: none;
 }
 

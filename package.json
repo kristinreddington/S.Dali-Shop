@@ -8,6 +8,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@material-tailwind/html": "^2.2.2",
     "@reduxjs/toolkit": "^2.2.3",
     "@stripe/react-stripe-js": "^2.7.1",
     "@stripe/stripe-js": "^3.4.0",
