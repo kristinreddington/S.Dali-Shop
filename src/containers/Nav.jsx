@@ -15,6 +15,7 @@ import Auth from '../helpers/Auth.ts'
 import Dashboard from './Dashboard'
 // Assets
 import Logo from '../assets/Logo.png';
+import SDaliShop from '../assets/SDaliShop.png';
 
 const Nav = () => {
 
@@ -106,7 +107,7 @@ const Nav = () => {
       {/* className="bg-[url('../public/dresses.jpg')]" */}
         <div className='grid grid-cols-2'>
           <NavLink className={!nav ? "max-w-[300px] font-bold navbar-nav hover:text-dim-gray flex pr-5 col-span-1" : 'hidden'} to='/'>
-            <img src={Logo} />
+            <img src={SDaliShop} />
           </NavLink>
           <div className='fixed right-0 block p-3' onClick={handleNav}>{nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
           </div>
