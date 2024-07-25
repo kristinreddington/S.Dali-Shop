@@ -57,7 +57,6 @@ export const getPosts = () => {
           }
       });
   };
-  console.log('here');
   retrieveMore(0);
 }
 };

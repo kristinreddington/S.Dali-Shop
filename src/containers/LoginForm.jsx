@@ -22,7 +22,7 @@ class LoginForm extends Component {
 
   render() {
     return(
-      <div>
+      <div className='w-100% mt-[30px] w-full mx-auto py-4 flex flex-col justify-center'>
         <form className="form-group"
         onSubmit={(e) =>
           this.props.handleLoginSubmit(e, this.state)}
@@ -32,8 +32,6 @@ class LoginForm extends Component {
           <label className='text-gray-300' htmlFor="email">Email</label>
           <input className="form-control" type="email" name="email"
           value={this.state.email} onChange={this.handleOnChange} />
-
-
           <label className='text-gray-300' htmlFor="password">Password</label>
           <input className="form-control" type="password" name="password"
           value={this.state.password} onChange={this.handleOnChange} /><br/>

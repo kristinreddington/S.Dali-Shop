@@ -13,6 +13,9 @@ module.exports = {
         'pearl': '#EEEEEE',
         'beaver': '#AE8C77',
         'ecru': '#C6AE83'
+      },
+      backgroundImage: {
+        
       }
     },
   },
