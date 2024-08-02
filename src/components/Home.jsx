@@ -1,5 +1,4 @@
 import React from 'react';
-import './Home.css'
 import { ReactTyped } from 'react-typed';
 const Home = () => {
   return (
