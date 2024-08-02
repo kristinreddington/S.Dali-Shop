@@ -37,16 +37,16 @@ const Nav = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
-
-
-  function handleNav() {
-    console.log('here!')
-    setNav(!nav);
-  }
+  
   useEffect(() => {
     console.log(nav)
   }, [nav]);
 
+
+  function handleNav() {
+    setNav(!nav);
+  }
+  
 
   function handleRegisterSubmit(event, data) {
     event.preventDefault();

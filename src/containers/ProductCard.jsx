@@ -1,8 +1,7 @@
-import '../containers/Products.css';
 import React, { useState, useEffect } from "react";
 import Stripe from './Stripe';
 
-export default function ProductCard (props) {
+const ProductCard = (props) => {
   const [loadStripe, setloadStripe] = useState(false);
 
   useEffect(() => {
@@ -42,3 +41,4 @@ export default function ProductCard (props) {
       </div>
     )
 }
+export default ProductCard;

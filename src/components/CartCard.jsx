@@ -1,13 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Redirect } from 'react-redux';
-import './CartCard.css';
 
 const CartCard = (props) => (
-  <div key={props.line_item.id} className="Cart-card-item">
-    <img id="line_item-image" src={props.line_item.product_image} alt={props.line_item.name} />
-    <p id="line_item-name">{props.line_item.product_name}</p>
-    <p id="line_item-price">${props.line_item.product_price}</p>
-    <p id="line_item-description">{props.line_item.product_description}</p>
+  <div key={props.line_item.id} className="m-2 text-center hover:shadow-xl">
+    <img className='w-[50%]' src={props.line_item.product_image} alt={props.line_item.name} />
+    <p>{props.line_item.product_name}</p>
+    <p>${props.line_item.product_price}</p>
+    <p>{props.line_item.product_description}</p>
     <form
     onSubmit={ function(event) {
       event.preventDefault()

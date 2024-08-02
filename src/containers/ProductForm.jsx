@@ -1,28 +1,29 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { updateProductFormData } from '../actions/productFormActions';
-import { createProduct } from '../actions/productActions'
+import React from "react";
+import { connect } from "react-redux";
+import { updateProductFormData } from "../actions/productFormActions";
+import { createProduct } from "../actions/productActions";
 
-class ProductForm extends Component {
+const ProductForm = (props) => {
 
-handleOnChange = (event) => {
-  const { name, value } = event.target;
-  const currentProductData = Object.assign({}, this.props.productFormData, {
-    [name]: value
-  })
-  this.props.updateProductFormData(currentProductData);
-}
+  const { name, price, image_url, description } = props.productFormData;
+  
+  handleOnChange = (event) => {
+    const { name, value } = event.target;
+    const currentProductData = Object.assign({}, props.productFormData, {
+      [name]: value,
+    });
+    props.updateProductFormData(currentProductData);
+  };
 
-handleOnSubmit = (event) => {
-  event.preventDefault();
-  this.props.createProduct(this.props.productFormData)
-}
-  render() {
-    const { name, price, image_url, description } = this.props.productFormData;
-    return(
-      <div>
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    props.createProduct(props.productFormData);
+  };
+
+  return (
+    <div>
       Add Product to inventory
-        <form onChange={this.handleOnChange} onSubmit={this.handleOnSubmit}>
+      <form onChange={this.handleOnChange} onSubmit={this.handleOnSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
           <input type="text" name="name" value={name} />
@@ -40,21 +41,12 @@ handleOnSubmit = (event) => {
           <input type="text" name="description" value={description} />
         </div>
 
-        <button className="text-rose-taupe" type="submit">Add Product</button>
-    </form>
-  </div>
+        <button className="text-rose-taupe" type="submit">
+          Add Product
+        </button>
+      </form>
+    </div>
+  );
+};
 
-    )
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    productFormData: state.productFormData
-  }
-}
-
-export default connect(mapStateToProps, {
-  updateProductFormData,
-  createProduct
- })(ProductForm);
+export default ProductForm;

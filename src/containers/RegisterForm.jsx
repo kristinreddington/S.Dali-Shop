@@ -1,4 +1,3 @@
-import './Login.css'
 import React, { Component } from 'react'
 //import { connect } from 'react-redux';
 //import { updateRegisterFormData } from '../actions/registerFormActions';
@@ -35,14 +34,14 @@ handleOnChange = (event) => {
           >
 
           <label htmlFor="email">Email</label>
-          <input className="form-control" type="email" name="email"
+          <input className="text-sm rounded bg-pearl text-rose-taupe border-solid border-[1px] border-black tracking-wide mx-0 w-auto py-0 px-[15px] align-top" type="email" name="email"
           value={this.state.email} onChange={this.handleOnChange} />
 
 
           <label htmlFor="password">Password</label>
-          <input className="form-control" type="password" name="password"
+          <input className="text-sm rounded bg-pearl text-rose-taupe border-solid border-[1px] border-black tracking-wide mx-0 w-auto py-0 px-[15px] align-top" type="password" name="password"
           value={this.state.password} onChange={this.handleOnChange} /><br/>
-          <button className='bg-[#9ecfca] w-[150px] max-h-[50px] rounded-md font-medium mx-auto py-2 text-rose-taupe' type="submit">Submit</button>
+          <button className='bg-black w-[150px] max-h-[50px] rounded-md font-medium mx-auto py-2 px-[15px] transition duration-[300ms] ease-[background-color] text-rose-taupe' type="submit">Submit</button>
         </form>
       </div>
     )

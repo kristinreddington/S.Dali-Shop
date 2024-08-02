@@ -4,7 +4,6 @@ import { getProducts } from '../actions/productActions'
 import ProductCard from './ProductCard';
 import Auth from '../helpers/Auth.ts';
 import { addToCart, removeFromCart } from '../actions/cartActions';
-import './Products.css'
 import Stripe from './Stripe';
 
 class Products extends Component {
