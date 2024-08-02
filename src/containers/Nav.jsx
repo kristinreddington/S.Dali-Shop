@@ -43,9 +43,6 @@ const Nav = () => {
     console.log('here!')
     setNav(!nav);
   }
-  // function handleAccountDropdown() {
-  //   setAccountDropdownOpen(accountDropdownOpen ? false : true);
-  // }
   useEffect(() => {
     console.log(nav)
   }, [nav]);
@@ -104,52 +101,13 @@ const Nav = () => {
   return (
     <Router>
       <div>
-      {/* className="bg-[url('../public/dresses.jpg')]" */}
         <div className='grid grid-cols-2'>
           <NavLink className={!nav ? "max-w-[300px] font-bold navbar-nav hover:text-dim-gray flex pr-5 col-span-1" : 'hidden'} to='/'>
-            <img src={SDaliShop} />
+            <img class="max-w-28" src={SDaliShop} />
           </NavLink>
           <div className='fixed right-0 block p-3' onClick={handleNav}>{nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
           </div>
         </div>
-        {/* <ul className='hidden md:flex'>
-          <li className='w-full font-bold relative'>
-            <button data-ripple-light="true" data-popover-target="menu" onClick={() => setAccountDropdownOpen(!accountDropdownOpen)} id="user" className="text-rose-taupe navbar-nav hover:text-dim-gray transition-all active:opacity-[0.85] active:shadow-none">
-              Account<GoChevronDown size={20} className='text-rose-taupe inline' />
-            </button>
-            {(accountDropdownOpen && !auth) ?
-              <ul role="menu" data-popover="menu" data-popover-placement="bottom"
-                ref={menuRef} className={accountDropdownOpen ? 'absolute z-10 min-w-[180px] rounded-md border border-blue-gray-50 p-3 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none bg-pearl opacity-80 text-rose-taupe rounded-b-md ml-4 w-min mt-[-20px] translate-y-0 ease opacity-1' : 'hidden -translate-y-20 ease'}>
-                <li role="menuitem">
-                  <NavLink id="user" className="min-w-full text-ash-grey navbar-nav hover:text-dim-gray" to='/login'>Login</NavLink>
-                </li>
-                <li role="menuitem">
-                  <NavLink id="register" className="min-w-full text-ash-grey navbar-nav hover:text-dim-gray" to='/register'>Register</NavLink>
-                </li>
-              </ul>
-              : null}
-            {(accountDropdownOpen && auth) ?
-              <div ref={menuRef} className='absolute bg-[#577288] text-white rounded-b-md ml-4 w-min mt-[-20px] ease-in-out duration-500'>
-                <NavLink id="user" className="text-ash-grey navbar-nav hover:text-dim-gray" to='/logout'>Logout</NavLink>
-              </div>
-              : null}
-          </li>
-          <li className='w-full font-bold'>
-            <NavLink id="shop" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/products'>Shop</NavLink>
-          </li>
-          <li className='w-full font-bold'>
-            <NavLink id="inspo" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/inspo'>Inspo</NavLink>
-          </li>
-          {(auth) ?
-            <li className='w-full font-bold'>
-              <NavLink to='/dash' className="text-rose-taupe navbar-nav hover:text-dim-gray">Dash</NavLink>
-            </li> : null}
-          {(auth) ?
-            <li className='w-full font-bold'>
-              <NavLink id="logout" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/' onClick={handleLogOut}>Logout</NavLink>
-            </li> : null}
-
-        </ul> */}
         <div className={nav ? 'absolute left-0 top-o w-[60%] h-full bg-pearl border-r-dim-gray ease-in-out duration-500 z-50' : 'hidden'}>
           <ul className='p-4 uppercase'>
             {!(auth) ?

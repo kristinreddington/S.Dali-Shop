@@ -63,6 +63,16 @@
   text-decoration: none;
 }
 
+h1 {
+  font-family: "LeMurmure";
+  color: black;
+  opacity: 90;
+}
+p {
+  font-family: "Tenor";
+  color: dimgray;
+}
+
 /* Fonts */
 
 .font-face-junicode {
