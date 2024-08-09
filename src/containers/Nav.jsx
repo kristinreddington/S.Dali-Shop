@@ -103,7 +103,7 @@ const Nav = () => {
       <div>
         <div className='grid grid-cols-2'>
           <NavLink className={!nav ? "max-w-[300px] font-bold navbar-nav hover:text-dim-gray flex pr-5 col-span-1" : 'hidden'} to='/'>
-            <img class="max-w-28" src={SDaliShop} />
+            <img className="max-w-28" src={SDaliShop} />
           </NavLink>
           <div className='fixed right-0 block p-3' onClick={handleNav}>{nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
           </div>
@@ -112,25 +112,25 @@ const Nav = () => {
           <ul className='p-4 uppercase'>
             {!(auth) ?
               <li className='p-4 border-b border-gray-600'>
-                <NavLink id="user" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/login'>Account<GoChevronDown className='text-rose-taupe' size={20} /></NavLink>
+                <NavLink onClick={handleNav} id="user" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/login'>Account<GoChevronDown className='text-rose-taupe' size={20} /></NavLink>
               </li> : null}
             <li className='p-4 border-b border-gray-600'>
-              <NavLink id="shop" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/products'>Shop</NavLink>
+              <NavLink onClick={handleNav} id="shop" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/products'>Shop</NavLink>
             </li>
             <li className='p-4 border-b border-gray-600'>
-              <NavLink id="inspo" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/inspo'>Inspo</NavLink>
+              <NavLink onClick={handleNav} id="inspo" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/inspo'>Inspo</NavLink>
             </li>
             {!(auth) ?
               <li className='p-4 border-b border-gray-600'>
-                <NavLink id="register" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/register'>Register</NavLink>
+                <NavLink onClick={handleNav} id="register" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/register'>Register</NavLink>
               </li> : null}
             {(auth) ?
               <li className='p-4 border-b border-gray-600'>
-                <NavLink to='/dash' className="text-rose-taupe navbar-nav hover:text-dim-gray">Dash</NavLink>
+                <NavLink onClick={handleNav} to='/dash' className="text-rose-taupe navbar-nav hover:text-dim-gray">Dash</NavLink>
               </li> : null}
             {(auth) ?
               <li className='p-4 border-b border-gray-600'>
-                <NavLink id="logout" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/' onClick={handleLogOut}>Logout</NavLink>
+                <NavLink onClick={handleNav} id="logout" className="text-rose-taupe navbar-nav hover:text-dim-gray" to='/' onClick={handleLogOut}>Logout</NavLink>
               </li> : null}
           </ul>
         </div>
