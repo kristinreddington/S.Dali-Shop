@@ -105,10 +105,13 @@ const Nav = () => {
           <NavLink className={!nav ? "max-w-[300px] font-bold navbar-nav hover:text-dim-gray flex pr-5 col-span-1" : 'hidden'} to='/'>
             <img className="max-w-28" src={SDaliShop} />
           </NavLink>
-          <div className='fixed right-0 block p-3' onClick={handleNav}>{nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+          <div className='fixed right-0 block p-3 z-100' onClick={handleNav}>{<AiOutlineMenu size={20} />}
           </div>
         </div>
-        <div className={nav ? 'absolute left-0 top-o w-[60%] h-full bg-pearl border-r-dim-gray ease-in-out duration-500 z-50' : 'hidden'}>
+        <div className={nav ? 'absolute left-0 top-o w-full h-full bg-pearl border-r-dim-gray ease-in-out duration-500 z-50' : 'hidden'}>
+        <div className='fixed right-0 block p-3 z-100' onClick={handleNav}>
+          <AiOutlineClose size={20} />
+        </div>
           <ul className='p-4 uppercase'>
             {!(auth) ?
               <li className='p-4 border-b border-gray-600'>
