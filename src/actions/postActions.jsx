@@ -9,36 +9,15 @@ const setPosts = (posts) => {
   };
 };
 
-// export const getPosts = (offset) => {
-//   return (dispatch) => {
-//     $.ajax({
-//       url:`https://api.tumblr.com/v2/blog/somewhatadrift.tumblr.com/posts/photo?offset=${offset}&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1534134287&oauth_nonce=vB3KXh&oauth_version=1.0&oauth_signature=l3UOWPW1GXHI616cQ6enosymB8k=&api_key=fZ6DymUqbEteBsS6GGvexSWDuE8AtLgPSOjjYWxx6OHwJU1Ww8`,
-//       type: "GET",
-//       context: this,
-//       success: function(result) {
-//           let posts = [];
-//           posts.push(result.response.posts.filter(post => post.type === 'photo'));
-//           let limit = 50;
-//           let offset = 20;
-//           let total_posts = result.response.total_posts;
-//           if (total_posts >= offset && posts.length !== 0) {
-//             getPosts(offset + limit);
-//          }
-//          dispatch(setPosts(posts));
-//       }
-//     }
-//   );
-//   testing();
-//   }
-// }
 let posts = [];
 let postsTwo = [];
 export const getPosts = () => {
   return (dispatch) => {
     let limit = 50; // set this to any value you want up to 50.
     const retrieveMore = function (offset) {
+      const OAUTH_API_KEY = import.meta.env.OAUTH_API_KEY
       $.ajax({
-        url: `https://api.tumblr.com/v2/blog/somewhatadrift.tumblr.com/posts/photo?offset=${offset}&limit=${limit}&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1534134287&oauth_nonce=vB3KXh&oauth_version=1.0&oauth_signature=l3UOWPW1GXHI616cQ6enosymB8k=&api_key=fZ6DymUqbEteBsS6GGvexSWDuE8AtLgPSOjjYWxx6OHwJU1Ww8`,
+        url: `https://api.tumblr.com/v2/blog/somewhatadrift.tumblr.com/posts/photo?offset=${offset}&limit=${limit}&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1534134287&oauth_nonce=vB3KXh&oauth_version=1.0&oauth_signature=l3UOWPW1GXHI616cQ6enosymB8k=&api_key=${OAUTH_API_KEY}`,
         type: "GET",
         context: this,
         success: function (result) {
