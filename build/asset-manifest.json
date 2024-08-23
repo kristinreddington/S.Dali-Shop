@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1ef0bd0f.css",
+    "main.js": "/static/js/main.db0704ca.js",
+    "static/media/Junicode.ttf": "/static/media/Junicode.97b4b312e8a9ff430693.ttf",
+    "static/media/Junicode-Italic.ttf": "/static/media/Junicode-Italic.9907e823309e50bca1e0.ttf",
+    "static/media/FoulisGreek.ttf": "/static/media/FoulisGreek.f1413806bdc06c716df5.ttf",
+    "static/media/Junicode-Bold.ttf": "/static/media/Junicode-Bold.462f5b06b5b36bc3d9b8.ttf",
+    "static/media/Junicode-BoldItalic.ttf": "/static/media/Junicode-BoldItalic.100dd18b9472135d3c07.ttf",
+    "static/media/TenorSans-Regular.ttf": "/static/media/TenorSans-Regular.0d22289d38b3d37f95b6.ttf",
+    "static/media/Le_Murmure-Regular_web.ttf": "/static/media/Le_Murmure-Regular_web.a4592bca0ba9c5d8f142.ttf",
+    "static/media/Logo.png": "/static/media/Logo.5c6235914fd881405068.png",
+    "static/media/SDaliShop.png": "/static/media/SDaliShop.60ca5e8e1f9ab5c90d04.png",
+    "index.html": "/index.html",
+    "main.1ef0bd0f.css.map": "/static/css/main.1ef0bd0f.css.map",
+    "main.db0704ca.js.map": "/static/js/main.db0704ca.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ef0bd0f.css",
+    "static/js/main.db0704ca.js"
+  ]
+}
