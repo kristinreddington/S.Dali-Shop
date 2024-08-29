@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post '/login' => 'sessions#create'
     delete '/logout' => 'sessions#destroy'
     get '/profile' => 'users#profile'
+    resources :registrations, :only => [:create]
     resources :order_items, :except => [:new, :edit]
     resources :line_items, :only => [:create, :destroy]
     resources :products, :except => [:new, :edit]
