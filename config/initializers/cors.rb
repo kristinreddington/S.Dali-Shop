@@ -13,7 +13,7 @@
    end
 
    allow do
-    origin 'https://s-dali-shop.onrender.com'
+    origins 'https://s-dali-shop.onrender.com'
     resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head],
    credentials: true
    end
