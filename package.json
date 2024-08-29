@@ -27,7 +27,7 @@
     "redux-thunk": "^3.1.0"
   },
   "scripts": {
-    "start": "rails s -p 3001 && react-scripts start && rake db:migrate",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
