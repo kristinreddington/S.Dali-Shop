@@ -10,7 +10,7 @@ const ProductCard = (props) => {
 
 
     return (
-        <div key={props.product.id} className="max-w-[1240px] mx-auto my-8 md:my-0 grid md:grid-cols-2 shadow-xl rounded-lg hover:scale-105 duration-300">
+        <div key={props.product.id} className="max-w-[1240px] mx-auto my-8 md:my-20 grid md:grid-cols-2 shadow-xl rounded-lg hover:scale-105 duration-300">
           <img className='max-w-[300px] mx-auto my-4' src={props.product.image_url} alt={props.product.name} />
           <div className='flex flex-col justify-center'>
           <h1 className='md:text-5xl sm:text-3xl text-2xl font-bold py-2'>{props.product.name}</h1>

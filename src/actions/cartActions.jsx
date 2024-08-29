@@ -7,14 +7,6 @@ export const setCart = cart => {
     cart
   }
 }
-
-// export const setEmail = email => {
-//   return {
-//     type: 'SET_EMAIL',
-//     email
-//   }
-// }
-
 export const addProductToCart = product => {
   return {
     type: 'ADD_PRODUCT_TO_CART',
@@ -32,7 +24,7 @@ const removeItemFromCart = product => {
 
 export const getCartItems = () => {
   return (dispatch) => {
-    return fetch('http://localhost:3001/api/profile', {
+    return fetch(`${process.env.REACT_APP_API_URL}/profile`, {
       method: 'GET',
       headers: {
         token: Auth.getToken(),
@@ -47,7 +39,7 @@ export const getCartItems = () => {
 export const addToCart = (props) => {
 
   return (dispatch) => {
-    fetch('http://localhost:3001/api/line_items', {
+    fetch(`${process.env.REACT_APP_API_URL}/line_items`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -65,7 +57,7 @@ export const addToCart = (props) => {
 export const removeFromCart = (props) => {
   console.log(props)
   return (dispatch) => {
-    fetch(`http://localhost:3001/api/line_items/${props}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/line_items/${props}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

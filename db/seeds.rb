@@ -11,26 +11,26 @@ Product.create!([{
     name: "Bond Gown", image_url: '/BlackGown.jpg',
     price: 576, description: "100% Silk Evening Gown"},
   {
-    name: "Thunder trench", image_url: "/EveningVelvetBlueDress.jpg",
-    price: 300, description: "Perfect trench for fall"},
+    name: "Velour Starlight Dress", image_url: "/EveningVelvetBlueDress.jpg",
+    price: 300, description: "Made of lush velour fabric, this long-sleeved shapely dream is curve-loving luxury."},
   {
-    name: "Enfield Cross Body purse", image_url: "/LaceBodySuit.jpg",
-    price: 180, description: "Cheetah print cross-body bag with 3 compartments" },
+    name: "Gossamer BodySuit", image_url: "/LaceBodySuit.jpg",
+    price: 180, description: "Need we say more" },
   {
-    name: "Skinny Tank dress", image_url: "/SilkDress.jpg",
-    price: 150, description: "100% cotton body-forming casual dress"},
+    name: "Tea & Cocktails Dress", image_url: "/SilkDress.jpg",
+    price: 150, description: "100% silk grey to rose gradiant dress for when you mean business...or pleasure."},
   {
-    name: "Perfect White T", image_url: "/BeadedBlackBlouse.jpg",
-    price: 80, description: "The quintessential classic white T" },
+    name: "Legionarie Blouse", image_url: "/BeadedBlackBlouse.jpg",
+    price: 80, description: "The quintessential top to take over in." },
   {
-    name: "Ballet Pink Biker Jacket", image_url: "/BlackBra.jpg",
-    price: 550, description: "Classic leather jacket with a feminine twist"},
+    name: "Femme Fatal Brassiere", image_url: "/BlackBra.jpg",
+    price: 550, description: "Just enough padding, with no wire for a comfortable, high-end fit, of course made from 100% silk"},
   {
-    name: "Ralph Jeans", image_url: "/CocktailRing.jpg",
-    price: 218, description: "Dark denim fitted skinny jeans" },
+    name: "Amythest Dream Ring", image_url: "/CocktailRing.jpg",
+    price: 218, description: "Amythest stone set in pave diamonds on a solid gold ring. Made for a Queen." },
   {
-    name: "Versailles Scarf", image_url: "OrangeDress",
-    price: 300, description: "100% silk Versailles Palace inspired scarf" }
+    name: "Versailles Dress", image_url: "/OrangeDress.jpg",
+    price: 300, description: "An artisticlly designed beautiful burnt orange sundress made for lazy late summer and early Autumn days." }
   ])
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
